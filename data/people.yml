@@ -1,0 +1,120 @@
+# Members of the group.
+# Roles taken from the Open Week poster (April 2024): please update.
+# Each person: name, url (optional), role (optional), photo (optional, e.g. "assets/img/people/montaldo.jpg").
+# Photos taken from the Open Week 2024 poster.
+
+# Show or hide the "Alumni" and "Former members" sections on the People page (true / false)
+show_alumni: false
+show_former: false
+
+faculty:
+  - name: "Gianluca Bande"
+    photo: "assets/img/people/bande.jpg"
+    role: "Full Professor"
+    url: "https://unica.it/unica/it/ateneo_s07_ss01.page?contentId=SHD30096"
+  - name: "Beniamino Cappelletti Montano"
+    photo: "assets/img/people/cappelletti-montano.jpg"
+    role: "Full Professor"
+    url: "https://www.unica.it/unica/page/it/beniamino_cappellett"
+  - name: "Andrea Loi"
+    photo: "assets/img/people/loi.jpg"
+    role: "Full Professor"
+    url: "https://unica.it/unica/it/ateneo_s07_ss01.page?contentId=SHD30468"
+  - name: "Stefano Montaldo"
+    photo: "assets/img/people/montaldo.jpg"
+    role: "Full Professor"
+    url: "https://www.unica.it/unica/page/it/stefano_montaldo"
+  - name: "Roberto Mossa"
+    photo: "assets/img/people/mossa.jpg"
+    role: "Associate Professor"
+    url: "https://www.unica.it/unica/page/it/roberto_mossa"
+  - name: "Irene Onnis"
+    photo: "assets/img/people/onnis.jpg"
+    role: "Associate Professor"
+    url: "https://www.unica.it/unica/page/it/irenei_onnis"
+  - name: "Giovanni Placini"
+    photo: "assets/img/people/placini.jpg"
+    role: "Researcher (RTDa)"
+    url: "https://web.unica.it/unica/page/it/giovanni_placini"
+  - name: "Luigi Provenzano"
+    role: "Associate Professor"
+    photo: "assets/img/people/provenzano.jpg"
+    url: "https://sites.google.com/view/luigiprovenzano/home"
+  - name: "Andrea Ratto"
+    photo: "assets/img/people/ratto.jpg"
+    role: "Full Professor"
+    url: "https://www.unica.it/unica/page/it/andrea_ratto"
+  - name: "Fabio Zuddas"
+    photo: "assets/img/people/zuddas.jpg"
+    role: "Associate Professor"
+    url: "https://www.unica.it/unica/page/it/fabio_zuddas"
+
+# PhD students and post-docs (add role: "PhD student" or "Post-doc")
+junior:
+  - name: "Marco Casula"
+    photo: "assets/img/people/casula.jpg"
+    role: "PhD student"
+  - name: "Antonio Contrò"
+    photo: "assets/img/people/contro.jpg"
+    role: "PhD student"
+  - name: "Marco Damele"
+    role: "PhD student"
+    photo: "assets/img/people/damele.jpg"
+  - name: "Micaela Mura"
+    role: "PhD student"
+  - name: "Matteo Palmieri"
+    photo: "assets/img/people/palmieri.jpg"
+    role: "PhD student"
+  - name: "Vittoria Piriottu"
+    role: "PhD student"
+  - name: "Antonio Sanna"
+    photo: "assets/img/people/sanna.jpg"
+    role: "PhD student"
+
+former:
+  - name: "Renzo Caddeo"
+  - name: "Paola Piu"
+    url: "https://www.unica.it/unica/page/it/mariap_piu"
+
+alumni:
+  - name: "Adina Balmus"
+    now: "University of Iași, Romania"
+  - name: "Francesco Cannas-Aghedu"
+    url: "https://www.francescocannasaghedu.com/p/francesco-cannas-aghedu-dipartimento-di.html"
+  - name: "Benedetto Manca"
+    now: "University of Cagliari"
+    url: "https://www.unica.it/unica/page/it/benedetto_manca"
+  - name: "Apoenã Passos Passamani"
+    now: "Universidade Federal do Espírito Santo, Brazil"
+    url: "https://bv.fapesp.br/en/pesquisador/80847/apoena-passos-passamani/"
+  - name: "Nicola Pia"
+    now: "Fraunhofer-Gesellschaft, Germany"
+    url: "https://www.researchgate.net/scientific-contributions/Nicola-Pia-2157681675"
+  - name: "Filippo Salis"
+    now: "Politecnico di Torino"
+    url: "https://areeweb.polito.it/disma-excellence/people/Salis.html"
+  - name: "Michela Zedda"
+    now: "University of Parma"
+    url: "https://personale.unipr.it/it/ugovdocenti/person/135671"
+
+collaborators:
+  - { name: "Dmitri Alekseevsky", url: "http://iitp.ru/en/users/2420.htm" }
+  - { name: "Daniele Angella", url: "https://sites.google.com/site/danieleangella/" }
+  - { name: "Claudio Arezzo", url: "https://www.ictp.it/phonebook/person?id=2628" }
+  - { name: "David Blair", url: "https://math.msu.edu/directory/PersonalPage?id=111111271" }
+  - { name: "Volker Branding", url: "https://www.mat.univie.ac.at/~branding/" }
+  - { name: "Adriana Cintra", url: "https://www.researchgate.net/profile/Adriana-Cintra" }
+  - { name: "Antonio De Nicola", url: "http://www.mat.uc.pt/~adenicola/" }
+  - { name: "Giulia Dileo", url: "https://www.dm.uniba.it/members/dileo" }
+  - { name: "Ali Fardoun", url: "http://www.lmba-math.fr/perso/ali.fardoun/" }
+  - { name: "Paolo Ghiggini", url: "https://www.math.sciences.univ-nantes.fr/~ghiggini/EN/index.html" }
+  - { name: "Sigmundur Gudmundsson", url: "https://www.maths.lth.se/matematiklu/personal/sigma/" }
+  - { name: "Dieter Kotschick", url: "https://www.mathematik.uni-muenchen.de/~dieter/" }
+  - { name: "Eric Loubeau", url: "http://www.lmba-math.fr/users/145/222/loubeau.html" }
+  - { name: "Francesco Mercuri", url: "https://www.ime.unicamp.br/~mercuri/" }
+  - { name: "Cezar Oniciuc", url: "https://www.math.uaic.ro/~oniciucc/index.html" }
+  - { name: "Alvaro Pampano", url: "https://www.math.ttu.edu/~apampano/" }
+  - { name: "Apoenã Passos Passamani", url: "https://bv.fapesp.br/en/pesquisador/80847/apoena-passos-passamani/" }
+  - { name: "Jonas Stelzig", url: "https://www.mathematik.uni-muenchen.de/~stelzig/" }
+  - { name: "Ivan Yudin", url: "https://scholar.google.com/citations?user=q7W_A9kAAAAJ&hl=en" }
+  - { name: "Leopold Zoller", url: "http://www.mi.uni-koeln.de/~lzoller/" }

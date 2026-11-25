@@ -1,0 +1,137 @@
+# Geometry, Algebra and Logic Seminars
+# To add a seminar, copy a block and edit it. Dates are YYYY-MM-DD.
+# The site automatically splits upcoming and past seminars using today's date.
+# Optional fields: abstract (LaTeX between $...$ is fine), time, room, note.
+
+title: "Geometry, Algebra and Logic Seminars"
+schedule: "Tuesdays at 17:00"
+room: "Aula B"
+past_editions_url: "https://web.unica.it/unica/it/past_editions_of_the_seminars.page"
+
+talks:
+  - date: "2026-10-06"
+    speaker: "Dr. Marco Damele"
+    affiliation: "Università di Cagliari"
+    title: "Ideals and solvability in skew braces"
+    abstract: >-
+      Skew braces are algebraic structures consisting of two group operations on the same set,
+      related by a compatibility condition. In this talk, I will give a brief introduction to skew
+      braces, presenting some basic examples and the lambda map, which plays a central role in
+      relating the two group structures.
+
+
+      I will then discuss some natural questions arising from the classification problem, with
+      particular focus on ideals, simplicity and solvability. Finally, I will present recent joint
+      results with Gülin Ercan concerning finite skew braces with nilpotent multiplicative group and
+      solvability in the two-sided case.
+  - date: "2026-10-20"
+    speaker: "Dr. Giacomo Tendas"
+    affiliation: "University of Manchester"
+    title: "Enriched universal algebra"
+    abstract: >-
+      Universal algebra, introduced by Birkhoff, deals with sets $A$ equipped with operations
+      $f_A\colon A^n \to A$, where $f$ is a function symbol of arity $n$ in a certain language
+      (or signature) $L$. Starting from this, one builds terms and equations, and studies the classes
+      of algebras satisfying a given set of equations.
+
+
+      The aim of this talk, based on a joint paper with J. Rosický, is to generalise these
+      constructions to the setting where the category of sets is replaced by a (sufficiently nice)
+      monoidal category where we shall define corresponding notions of languages, terms, equations,
+      and algebras.
+
+
+      Instances of this have been developed only in specific situations: notably over the categories
+      of posets and of metric spaces (with quantitative equational theories). With our work we unify
+      this fragmented picture under the same general theory, providing new useful tools that allow
+      the development of universal algebra in other areas over bases different from Set. Other
+      examples of bases of interest include Abelian groups, omega-complete posets, and Banach spaces.
+  - date: "2026-10-27"
+    speaker: "Dr. Matteo Palmieri"
+    affiliation: "Università di Cagliari"
+    title: "Quantization of compact Hermitian symmetric spaces"
+    abstract: >-
+      Certain geometric structures on a manifold canonically determine a distinguished Riemannian
+      metric. A natural question is then whether this metric admits deformations compatible with the
+      underlying geometry. Quantization provides a framework for investigating such questions by
+      encoding geometric information into linear-algebraic structures. In this talk, I will introduce
+      Berezin's quantization on compact Kähler manifolds and use the microlocal analysis of
+      Bergman-Szegö kernels to present a discreteness phenomenon for deformations of the canonical
+      symmetric metric on Hermitian symmetric spaces of compact type.
+  - date: "2026-11-03"
+    speaker: "Prof. Andrea Loi"
+    affiliation: "Università di Cagliari"
+    title: "Associative Lifts of Topological Semigroups"
+    abstract: >-
+      This talk addresses the problem of lifting the multiplication of a topological semigroup to its
+      universal cover while preserving associativity. Under the standard covering-space hypotheses,
+      continuous lifts always exist, but they need not be associative. The main question is therefore
+      whether their associativity defect can be corrected. We will present a theorem establishing that
+      every connected topological semigroup whose underlying space is a finite-dimensional CW complex
+      admits an associative lift of its multiplication, unique up to isomorphism over the base.
+      Neither an identity nor an idempotent element is required. We will outline the proof, which
+      combines the analysis of deck transformations with the splitting theory of homotopy
+      idempotents. This approach also yields an algebraic criterion characterizing the existence of
+      associative lifts through the presence of an idempotent in a suitable semigroup of
+      endomorphisms. This talk is based on joint work with Stefano Bonzio.
+  - date: "2026-11-10"
+    speaker: "Dr. Giuseppe Zecchini"
+    affiliation: "Università di Cagliari"
+    title: "From Yamada-Kimura to Płonka sums: a structural generalization"
+    abstract: >-
+      The Płonka sum construction was introduced in the 1960s in universal algebra by the eponymous
+      Polish mathematician, generalizing a construction widely known in the algebraic theory of
+      semigroups as the strong semilattice of semigroups. It plays a key role in the structure theory
+      of regularizations of strongly irregular varieties; indeed, the regularization of a strongly
+      irregular variety V is exactly the class of Płonka sums of algebras in V. Several subvarieties
+      of bands (i.e., idempotent semigroups) can be fully characterized in this way. In particular,
+      every normal band is a Płonka sum of rectangular bands. Alternatively, Yamada and Kimura
+      established that every normal band is a fibered product of a left-normal and a right-normal
+      band over its semilattice replica. Building upon newly established categorical properties of
+      Płonka sums, the aim of this talk is to provide an abstract analysis and some generalisations
+      of this structural result, showing how similar decomposition theorems extend to broader
+      classes of algebras.
+  - date: "2026-11-17"
+    speaker: "Dr. Federico Thiella"
+    affiliation: "Università di Firenze"
+    title: "From combinatorics to complex geometry: LVMB manifolds"
+    abstract: >-
+      Not every complex manifold arises from polynomial equations. Understanding their general
+      landscape therefore requires studying examples that are neither algebraic nor Kähler. A broad
+      class of compact non-Kähler complex manifolds is given by LVMB manifolds. These manifolds,
+      introduced by López de Medrano, Verjovsky, Meersseman and Bosio, arise as geometric
+      realizations of combinatorial data, establishing a close connection with (nonrational) toric
+      geometry. In this talk, we will explore this connection and discuss how the bimeromorphic
+      geometry of LVMB manifolds, and in particular their algebraic dimension, reflects the
+      rationality properties of the associated toric spaces.
+  - date: "2026-11-23"
+    speaker: "Dr. Lapo Rubini"
+    affiliation: "Università di Firenze"
+    title: "A degree-dependent notion of strong formality"
+    abstract: >-
+      Strong formality, introduced by Stelzig and Milivojević in 2024, provides a natural analogue
+      to Sullivan formality in a pluripotential setting. In this talk, I will give an overview of
+      pluripotential homotopy theory, highlighting its parallels with rational homotopy theory and
+      focusing in particular on strong formality. I will then discuss recent techniques, inspired
+      by a work of Fernández and Muñoz, which enable us to establish the strong formality of several
+      classes of compact complex manifolds by verifying it up to the middle degree of cohomology.
+      This allows us to prove the strong formality of Kähler manifolds with central cohomology and,
+      by means of the Lefschetz hyperplane theorem, zero-loci sections of positive line bundles in
+      a product of complex projective spaces.
+  - date: "2026-12-01"
+    speaker: "Prof. Simone Naldi"
+    affiliation: "Università di Cagliari"
+    title: "Spectrahedra, hyperbolicity cones and their representations"
+    abstract: >-
+      Spectrahedra are quite natural generalizations of polyhedra with which they share several
+      properties, the most important of which are convexity and being (basic) semialgebraic. They
+      appear for instance in the context of decompositions of multivariate positive polynomials as
+      sums of squares. The algebraic boundary of a spectrahedron is a real hypersurface with a special
+      determinantal representation. Relaxing this determinantal property one can generalize the class
+      of spectrahedra to hyperbolicity cones. This talk is an introduction to the basic theory, the main
+      results and conjectures concerning these two classes of semialgebraic sets. If time allows I will
+      mention recent developments claimed by OpenAI.
+  - date: "2026-12-15"
+    speaker: "Dr. Antonio Sanna"
+    affiliation: "Università di Cagliari"
+    title: "TBA"

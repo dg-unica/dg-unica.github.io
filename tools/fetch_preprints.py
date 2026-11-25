@@ -1,0 +1,119 @@
+"""Rebuild data/preprints.yml: recent arXiv preprints of the group not yet published.
+
+Usage:  python3 tools/fetch_preprints.py
+Needs:  internet access, and Ruby (preinstalled on macOS) to read the YAML files.
+
+How it works
+- For every faculty member and PhD student in data/people.yml, asks arXiv for the papers
+  submitted in the last MONTHS months (mathematics only).
+- An author is accepted only if surname and first name match the member (to avoid homonyms).
+- A paper is left out when arXiv reports a journal reference or a DOI, or when it is already
+  in data/publications.yml (same arXiv link or same title): that is, when it has been published.
+- Papers listed under "exclude" in data/preprints.yml are never shown (to remove a wrong match).
+"""
+import datetime
+import json
+import os
+import re
+import subprocess
+import sys
+import time
+import unicodedata
+import urllib.parse
+import urllib.request
+
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+DATA = os.path.join(ROOT, "data")
+OUT = os.path.join(DATA, "preprints.yml")
+MONTHS = 24
+
+
+def yaml(name):
+    rb = 'require "yaml"; require "json"; puts JSON.generate(YAML.load_file(ARGV[0]))'
+    return json.loads(subprocess.check_output(["ruby", "-e", rb, os.path.join(DATA, name)]))
+
+
+def norm(s):
+    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]", "", s)
+
+
+def query(member):
+    first, last = member.split(" ", 1)  # "Beniamino Cappelletti Montano" -> surname "Cappelletti Montano"
+    # search by surname in mathematics; homonyms are filtered out later by is_member
+    au = " AND ".join(f"au:{norm(w)}" for w in last.split()) + " AND cat:math.*"
+    url = "https://export.arxiv.org/api/query?" + urllib.parse.urlencode(
+        {"search_query": au, "sortBy": "submittedDate", "sortOrder": "descending", "max_results": 40})
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(url, timeout=60) as r:
+                return first, last, r.read().decode()
+        except Exception as e:
+            print("  retry", attempt + 1, e, file=sys.stderr)
+            time.sleep(10)
+    raise RuntimeError("arXiv API not reachable")
+
+
+def is_member(name, first, last):
+    """'Stefano Montaldo' or 'S. Montaldo' matches the member; 'Shan Montaldo' does not."""
+    name = re.sub(r"\s+", " ", name).strip()
+    if not norm(name).endswith(norm(last)):
+        return False
+    given = norm(name[: len(name) - len(last)] if name.lower().endswith(last.lower()) else name.rsplit(" ", 1)[0])
+    return given == norm(first) or (len(given) <= 2 and given[:1] == norm(first)[:1])
+
+
+def main():
+    people = yaml("people.yml")
+    members = [p["name"] for p in people.get("faculty", []) + people.get("junior", [])]
+    pubs = yaml("publications.yml")
+    known_ids = {p["arxiv"].split("/abs/")[-1] for p in pubs if p.get("arxiv")}
+    known_titles = {norm(p["title"]) for p in pubs}
+    old = yaml("preprints.yml") if os.path.exists(OUT) else {}
+    exclude = set(old.get("exclude") or [])
+    since = (datetime.date.today() - datetime.timedelta(days=30 * MONTHS)).isoformat()
+
+    # spell members' names as in people.yml (arXiv sometimes has "Andrea loi")
+    canonical = {norm(m): m for m in members}
+    found = {}
+    for m in members:
+        first, last, xml = query(m)
+        n = 0
+        for e in re.findall(r"<entry>(.*?)</entry>", xml, re.S):
+            aid = re.sub(r"v\d+$", "", re.search(r"<id>https?://arxiv.org/abs/(.*?)</id>", e).group(1))
+            title = re.sub(r"\s+", " ", re.search(r"<title>(.*?)</title>", e, re.S).group(1)).strip()
+            date = re.search(r"<published>(\d{4}-\d\d-\d\d)", e).group(1)
+            names = [re.sub(r"\s+", " ", x).strip() for x in re.findall(r"<name>(.*?)</name>", e, re.S)]
+            cats = re.findall(r'<category term="([^"]+)"', e)
+            if date < since or not any(c.startswith("math") for c in cats):
+                continue
+            if not any(is_member(x, first, last) for x in names):
+                continue
+            if "<arxiv:journal_ref" in e or "<arxiv:doi" in e:
+                continue
+            if aid in known_ids or norm(title) in known_titles or aid in exclude:
+                continue
+            title = title.replace("\\(", "$").replace("\\)", "$")
+            names = [canonical.get(norm(x), x) for x in names]
+            found[aid] = {"title": title, "authors": ", ".join(names), "date": date,
+                          "url": f"https://arxiv.org/abs/{aid}"}
+            n += 1
+        print(f"{m}: {n} preprints", file=sys.stderr)
+        time.sleep(3)  # arXiv asks for at most one request every 3 seconds
+
+    items = sorted(found.values(), key=lambda p: p["date"], reverse=True)
+    q = lambda s: json.dumps(s, ensure_ascii=False)
+    lines = ["# Recent arXiv preprints of the group, not yet published (newest first).",
+             "# Generated by tools/fetch_preprints.py: run it again to update the list.",
+             "# To hide a paper for good, add its arXiv id to the exclude list.", "",
+             "exclude: [" + ", ".join(q(x) for x in sorted(exclude)) + "]", "", "preprints:"]
+    for p in items:
+        lines += [f'  - title: {q(p["title"])}', f'    authors: {q(p["authors"])}',
+                  f'    date: {q(p["date"])}', f'    url: {q(p["url"])}']
+    with open(OUT, "w") as f:
+        f.write("\n".join(lines) + "\n")
+    print(f"{len(items)} preprints written", file=sys.stderr)
+
+
+if __name__ == "__main__":
+    main()

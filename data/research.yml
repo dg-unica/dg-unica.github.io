@@ -1,0 +1,789 @@
+# Research topics. Each topic has its own page: topic.html?t=<slug>
+#
+# Fields:
+#   slug      short id used in the address of the page (no spaces)
+#   title     topic name
+#   icon      symbol shown on the cards
+#   text      one-sentence summary (shown on the Research page)
+#   people    names of the members working on the topic (must match people.yml)
+#   figures   images with captions (files in assets/img/research/)
+#   body      paragraphs of the topic page
+#
+# Math: write LaTeX between $...$ (inside "double quotes" write \\ instead of \).
+# The texts of several topics are translated from the Open Week 2024 poster.
+# TEXTS AND PEOPLE ARE DRAFTS: please review them.
+
+- slug: harmonic-maps
+  title: "Harmonic and Biharmonic Maps and Immersions"
+  icon: "∫"
+  text: >
+    Critical points of the energy, the bienergy and higher order energies between
+    Riemannian manifolds: existence, stability, index and nullity, biharmonic and
+    biconservative submanifolds.
+  people: ["Stefano Montaldo", "Andrea Ratto", "Antonio Sanna"]
+  figures:
+    - src: "assets/img/research/harmonic-map.svg"
+      caption: 'A map $\varphi:M\to N$ from a flat sheet onto a sphere; in red, a line of $M$ and its image.'
+    - src: "assets/img/research/catenoid.svg"
+      caption: 'The catenoid, a minimal and hence harmonic immersion in $\mathbb{R}^3$, with its neck circle in red.'
+  body:
+    - >-
+      Imagine two surfaces in $\mathbb{R}^3$, one called $M$ made of rubber and the other,
+      $N$, made of marble. A map $\varphi: M \to N$ can be thought of as a way of laying $M$
+      onto $N$. At every point $p \in M$ we can define a vector that measures the elastic
+      tension of the rubber caused by this placement. The map $\varphi$ is harmonic when it
+      puts $M$ in a position of elastic equilibrium, that is, when its tension field vanishes
+      at every point.
+
+    - "## Harmonic maps"
+    - >-
+      Given a smooth map $\varphi:(M,g)\to(N,h)$ between Riemannian manifolds, with $M$ compact,
+      its energy is
+    - >-
+      $$E(\varphi)=\frac12\int_M |d\varphi|^2\, v_g .$$
+    - >-
+      Harmonic maps are the critical points of $E$. They are characterised by the vanishing of
+      the tension field $\tau(\varphi)=\operatorname{trace}\nabla d\varphi$, a second order
+      elliptic system that generalises the Laplace equation. Harmonic maps include many classical
+      objects:
+    - - "geodesics, when $M$ is an interval;"
+      - "harmonic functions, when $N=\\mathbb{R}$;"
+      - "minimal isometric immersions, such as soap films;"
+      - "holomorphic maps between Kähler manifolds."
+    - >-
+      Their systematic study started with the work of J. Eells and J. H. Sampson in 1964,
+      who proved that every map from a compact manifold into a compact manifold of non-positive
+      sectional curvature can be deformed into a harmonic one.
+
+    - "## Biharmonic maps"
+    - >-
+      Following a suggestion of Eells and Lemaire, biharmonic maps are defined as the critical
+      points of the bienergy
+    - >-
+      $$E_2(\varphi)=\frac12\int_M |\tau(\varphi)|^2\, v_g .$$
+    - >-
+      G. Y. Jiang computed the corresponding Euler–Lagrange equation in 1986. A map is
+      biharmonic if and only if its bitension field vanishes:
+    - >-
+      $$\tau_2(\varphi)=-\Delta^{\varphi}\tau(\varphi)-\operatorname{trace} R^N\big(d\varphi,\tau(\varphi)\big)d\varphi=0 .$$
+    - >-
+      Every harmonic map is biharmonic, since it is an absolute minimum of $E_2$. The interest
+      lies in proper biharmonic maps, those that are biharmonic but not harmonic. For isometric
+      immersions, biharmonicity is a condition on the mean curvature vector field $H$, and
+      it relates the geometry of the submanifold to the curvature of the ambient space.
+      Two famous conjectures guide the field:
+    - - "Chen's conjecture: every biharmonic submanifold of a Euclidean space is minimal. It is still open in general."
+      - "The Caddeo–Montaldo–Oniciuc conjecture: every proper biharmonic submanifold of a sphere has constant mean curvature."
+    - >-
+      Typical examples of proper biharmonic submanifolds in spheres are the small hypersphere
+      $\mathbb{S}^{n}(1/\sqrt2)\subset\mathbb{S}^{n+1}$ and the generalised Clifford tori
+      $\mathbb{S}^{p}(1/\sqrt2)\times\mathbb{S}^{q}(1/\sqrt2)\subset\mathbb{S}^{p+q+1}$ with $p\neq q$.
+
+    - "## Polyharmonic maps and higher order energies"
+    - >-
+      More generally, Eells and Sampson suggested to study the $r$-energies $E_r(\varphi)$,
+      which involve $r$ derivatives of $\varphi$. Their critical points are the polyharmonic,
+      or $r$-harmonic, maps. In a series of papers, members of the group derived the
+      Euler–Lagrange equations of these functionals in full generality. They then studied
+      their main properties: unique continuation, polyharmonic curves and helices,
+      polyharmonic surfaces in homogeneous three-dimensional spaces, polyharmonic hypersurfaces
+      in pseudo-Riemannian space forms and extrinsic polyharmonic maps into spheres.
+
+    - "## Biconservative submanifolds"
+    - >-
+      Following D. Hilbert, one can associate to a variational problem a stress-energy tensor,
+      which is conserved (divergence free) at critical points. For the bienergy, this tensor
+      $S_2$ satisfies $\operatorname{div}S_2=-\langle\tau_2(\varphi),d\varphi\rangle$.
+      An isometric immersion is called biconservative when $\operatorname{div}S_2=0$, that is,
+      when the tangent part of the bitension field vanishes. For a hypersurface in a space form
+      with shape operator $A$ and $f=\operatorname{trace}A$, this is the equation
+    - >-
+      $$2A(\nabla f)+f\,\nabla f=0 .$$
+    - >-
+      Constant mean curvature hypersurfaces are trivially biconservative. The challenge is to
+      understand the non-CMC ones, which form a much richer family than the biharmonic ones.
+      Recent results of the group include the existence of closed biconservative surfaces in
+      space forms, closed biconservative hypersurfaces in spheres, and biconservative surfaces
+      with flat normal bundle in four-dimensional space forms.
+
+    - "## Stability, index and nullity"
+    - >-
+      Once critical points are found, a natural question is whether they are stable, that is,
+      local minima of the functional. The answer is encoded in the second variation, whose
+      index and nullity count the independent directions along which the energy decreases or
+      stays constant. The group has studied the index and nullity of proper biharmonic maps
+      in spheres and the stability of the equator map $\mathbb{B}^n\to\mathbb{S}^n$ for higher
+      order energy functionals, extending classical results of Jäger and Kaul for harmonic maps.
+
+    - "## Current directions"
+    - - "Existence and stability of weak critical points of $r$-energy functionals."
+      - "Biconservative and biharmonic hypersurfaces in product spaces."
+      - "Conformal-biharmonic hypersurfaces in spheres."
+      - "Biharmonic and biconservative surfaces with flat normal bundle in four-dimensional spaces."
+      - "Polyharmonic curves and surfaces in semi-Riemannian manifolds."
+  reading:
+    - text: "S. Montaldo, An invitation to biharmonic and biconservative submanifolds, Note Mat. 45 (2025)"
+      url: "https://doi.org/10.1285/i15900932v45s1p193"
+    - text: "V. Branding, S. Montaldo, C. Oniciuc, A. Ratto, Higher order energy functionals, Adv. Math. 370 (2020)"
+      url: "https://www.sciencedirect.com/science/article/pii/S0001870820302620"
+    - text: "Y.-L. Ou, B.-Y. Chen, Biharmonic Submanifolds and Biharmonic Maps in Riemannian Geometry, World Scientific (2020)"
+
+- slug: contact-geometry
+  title: "Contact Riemannian Geometry"
+  icon: "η"
+  text: >
+    Contact metric structures and their curvature, contact and symplectic pairs, foliations,
+    intrinsically harmonic forms, and the interplay between contact topology and Riemannian geometry.
+  people: ["Gianluca Bande", "Beniamino Cappelletti Montano"]
+  figures:
+    - src: "assets/img/research/contact-planes.svg"
+      caption: 'The standard contact structure $\ker(dz-y\,dx)$ on $\mathbb{R}^3$: the planes twist as one moves along the $y$-axis.'
+    - src: "assets/img/research/reeb-component.svg"
+      caption: 'Cross-section of a Reeb component: the leaves accumulate on the boundary torus, in red.'
+  body:
+    - >-
+      Contact geometry is the odd-dimensional twin of symplectic geometry. It was born from
+      classical mechanics and geometric optics, through the study of wave fronts and of the
+      phase space of a system with time. Today it is a central topic in topology and geometry.
+      We are interested in the interaction between contact structures, foliations and
+      Riemannian metrics.
+
+    - "## Contact structures"
+    - >-
+      A contact form on a manifold $M^{2n+1}$ is a $1$-form $\eta$ such that
+    - >-
+      $$\eta\wedge(d\eta)^n\neq 0$$
+    - >-
+      at every point. Its kernel is a field of hyperplanes that is as far as possible from being
+      integrable: no surface, or more generally no submanifold of dimension greater than $n$,
+      can be tangent to it. The form $\eta$ determines the Reeb vector field $\xi$, defined by
+      $\eta(\xi)=1$ and $i_\xi d\eta=0$. By Darboux's theorem all contact forms look the same
+      locally, $\eta=dz-\sum_i y_i\,dx_i$, so every interesting phenomenon is global. The
+      standard example is the sphere $\mathbb{S}^{2n+1}$, where the contact hyperplanes are
+      orthogonal to the fibres of the Hopf fibration.
+
+    - "## Contact metric manifolds and their curvature"
+    - >-
+      On a contact manifold one can always choose a compatible Riemannian metric $g$ and a
+      tensor $\varphi$ such that
+    - >-
+      $$\varphi^2=-I+\eta\otimes\xi,\qquad g(\varphi X,\varphi Y)=g(X,Y)-\eta(X)\eta(Y),\qquad d\eta(X,Y)=g(X,\varphi Y).$$
+    - >-
+      The result is a contact metric manifold. Important subclasses are the K-contact
+      manifolds, where $\xi$ is a Killing field, and the Sasakian manifolds, where the
+      structure is in addition normal (see Sasakian and Vaisman Manifolds). A classical theme,
+      developed by D. E. Blair and his school, is how strongly the contact structure constrains
+      the curvature. Examples are the contact metric $(\kappa,\mu)$-spaces, whose curvature
+      satisfies
+    - >-
+      $$R(X,Y)\xi=\kappa\big(\eta(Y)X-\eta(X)Y\big)+\mu\big(\eta(Y)hX-\eta(X)hY\big),\qquad h=\tfrac12\mathcal{L}_\xi\varphi ,$$
+    - >-
+      and Einstein contact metric manifolds. A long-standing question asks whether every
+      compact Einstein contact metric manifold is Sasakian. We study these classes, their
+      Legendre foliations, and Einstein contact metrics with additional structure, such as an
+      integrable CR structure.
+
+    - "## Foliations"
+    - >-
+      A foliation of a manifold is a partition into submanifolds, called leaves, of a fixed
+      dimension. Locally, in dimension 2, it looks like a book with many pages. The Reeb
+      foliation of the three-sphere is the fundamental example that started the theory in the
+      middle of the twentieth century. It decomposes $\mathbb{S}^3$ into two solid tori, each
+      filled by planes that spiral towards a torus leaf. Among the most interesting problems are
+      the existence and classification of foliations on a given manifold, and the existence of
+      special metrics or of Sasakian or Kähler structures on the leaves. Recently we built a
+      physical model of the Reeb foliation.
+    - >-
+      Foliations appear naturally in contact geometry. The Reeb field defines a one-dimensional
+      foliation, and a contact manifold may carry Legendre foliations, whose leaves are
+      $n$-dimensional and tangent to the contact distribution.
+
+    - "## Contact pairs and symplectic pairs"
+    - >-
+      Contact pairs and symplectic pairs are geometric structures that interpolate between
+      contact or symplectic structures and foliations. A contact pair of type $(h,k)$ on a
+      manifold of dimension $2h+2k+2$ is a pair of $1$-forms $\alpha_1,\alpha_2$ such that
+    - >-
+      $$\alpha_1\wedge(d\alpha_1)^h\wedge\alpha_2\wedge(d\alpha_2)^k\neq 0,\qquad (d\alpha_1)^{h+1}=0,\qquad (d\alpha_2)^{k+1}=0 .$$
+    - >-
+      Each form then induces a contact structure on the leaves of a foliation defined by the
+      other. Similarly, a symplectic pair is a pair of closed $2$-forms of constant ranks whose
+      kernels are complementary foliations with symplectic leaves. These structures are related
+      to bi-Hamiltonian systems and recursion operators, and they give interesting examples of
+      intrinsically harmonic forms, that is, closed forms that are harmonic for a suitable
+      Riemannian metric. We have studied holomorphic spheres in four-dimensional symplectic pairs
+      and several open problems on intrinsically harmonic forms.
+
+    - "## Current directions"
+    - - "Symplectic pairs, contact pairs and intrinsically harmonic forms."
+      - "Physical and geometric models of foliations."
+      - "Einstein contact metrics with integrable CR structure."
+      - "Quasi-contact metric structures from Sasaki–Einstein metrics."
+      - "Curvature of contact metric manifolds and Legendre foliations."
+  reading:
+    - text: "D. E. Blair, Riemannian Geometry of Contact and Symplectic Manifolds, Progress in Mathematics 203, Birkhäuser (2nd ed. 2010)"
+    - text: "H. Geiges, An Introduction to Contact Topology, Cambridge University Press (2008)"
+    - text: "G. Bande, P. Ghiggini, Holomorphic spheres and four-dimensional symplectic pairs, J. Geom. Anal. 30 (2020)"
+      url: "https://link.springer.com/article/10.1007/s12220-019-00163-w"
+    - text: "G. Bande, G. Franzoni, A physical model of the Reeb foliation, Axioms 15 (2026)"
+      url: "https://doi.org/10.3390/axioms15010050"
+
+- slug: kahler-geometry
+  title: "Complex and Kähler Geometry"
+  icon: "ω"
+  text: >
+    Canonical metrics on Kähler manifolds (Kähler–Einstein, extremal, Ricci-flat,
+    Kähler–Ricci solitons), homogeneous spaces, quantization, Bergman kernels and
+    balanced metrics.
+  people: ["Andrea Loi", "Roberto Mossa", "Fabio Zuddas", "Matteo Palmieri"]
+  figures:
+    - src: "assets/img/research/fubini-study.svg"
+      caption: 'With the Fubini–Study metric, $\mathbb{C}\mathrm{P}^1$ is a round sphere; stereographic projection identifies it, minus a point, with $\mathbb{C}$.'
+  body:
+    - >-
+      Kähler manifolds are spaces with several compatible structures. They have a Riemannian
+      structure (a metric), a complex structure (locally modelled on $\mathbb{C}^n$) and a
+      symplectic structure, all compatible with each other. This miracle of compatibility makes
+      them rich in geometric and topological properties. The most classical examples of Kähler
+      manifolds are the complex submanifolds of projective space.
+
+    - "## Kähler metrics"
+    - >-
+      A Hermitian metric $g$ on a complex manifold $(M,J)$ is Kähler when its fundamental form
+      $\omega=g(J\cdot,\cdot)$ is closed. Locally, the whole metric is then determined by a
+      single real function, the Kähler potential $\Phi$:
+    - >-
+      $$\omega=\frac{i}{2}\,\partial\bar\partial\,\Phi .$$
+    - >-
+      Basic examples are the flat metric on $\mathbb{C}^n$, the Fubini–Study metric on complex
+      projective space, with potential $\log(1+|z|^2)$, and the hyperbolic metric on the unit
+      ball. By Kodaira's embedding theorem, a compact Kähler manifold whose Kähler class is
+      integral can be holomorphically embedded in some $\mathbb{C}\mathrm{P}^N$, so it is a
+      projective algebraic variety. This is where differential geometry meets algebraic geometry.
+
+    - "## Canonical metrics"
+    - >-
+      Following E. Calabi, one looks for a best metric in a given Kähler class. The most natural
+      candidates are:
+    - - "Kähler–Einstein metrics, with $\\mathrm{Ric}(\\omega)=\\lambda\\,\\omega$. Their existence was established by Aubin and Yau for $\\lambda<0$, by Yau for $\\lambda=0$ (the Calabi conjecture, which gives Ricci-flat metrics), and by Chen, Donaldson and Sun for Fano manifolds, in terms of K-stability."
+      - "Constant scalar curvature Kähler (cscK) metrics."
+      - "Extremal metrics, introduced by Calabi as the critical points of the $L^2$-norm of the scalar curvature. They are characterised by the fact that the gradient of the scalar curvature is a holomorphic vector field."
+      - "Kähler–Ricci solitons, satisfying $\\mathrm{Ric}(\\omega)-\\lambda\\,\\omega=\\mathcal{L}_X\\omega$ for a holomorphic vector field $X$. They are the self-similar solutions of the Kähler–Ricci flow."
+    - >-
+      A central theme of our research is the interaction between canonical metrics and
+      holomorphic isometric immersions. Which canonical metrics are induced by a finite or
+      infinite-dimensional complex space form? Examples are the extremal metrics induced by
+      complex space forms, the conjectures on Ricci-flat metrics induced by the
+      infinite-dimensional projective space, and the classification of canonical radial
+      Kähler metrics.
+
+    - "## Homogeneous spaces and Einstein metrics"
+    - >-
+      Homogeneous spaces, which can be described with the classical theory of Lie groups, have
+      many symmetries and therefore often admit special structures. One example is Einstein
+      metrics, whose Ricci curvature is proportional to the metric itself. Understanding which
+      manifolds admit these metrics is a very interesting problem. Conversely, which conditions
+      ensure that a manifold with an Einstein metric is a homogeneous space?
+    - >-
+      Homogeneous spaces that also admit a Kähler structure have many properties. For instance,
+      the compact simply connected ones, the generalised flag manifolds, all embed in projective
+      space. A problem that is still open is to understand whether homogeneous spaces are the
+      only submanifolds of projective space that admit Kähler–Einstein metrics induced by the
+      Fubini–Study metric.
+
+    - "## Quantization, Bergman kernels and balanced metrics"
+    - >-
+      Let $L\to M$ be a positive holomorphic line bundle whose curvature is the Kähler form
+      $\omega$. For every integer $m$, an orthonormal basis $s_0,\dots,s_{N_m}$ of the holomorphic
+      sections of $L^m$ gives a map from $M$ to $\mathbb{C}\mathrm{P}^{N_m}$. It also gives the
+      Kempf distortion function, or density of states,
+      $\varepsilon_m(x)=\sum_j |s_j(x)|^2_{h^m}$, which has an asymptotic expansion as
+      $m\to\infty$ due to Tian, Yau, Zelditch, Catlin and Lu:
+    - >-
+      $$\varepsilon_m(x)\sim\sum_{j\ge 0}a_j(x)\,m^{\,n-j},\qquad a_0=1,\quad a_1=\tfrac12\,\rho ,$$
+    - >-
+      where $\rho$ is the scalar curvature. When $\varepsilon_m$ is constant the metric is called
+      balanced, and in this case it is induced, up to a scaling, by the Fubini–Study metric.
+      Donaldson showed that balanced metrics approximate constant scalar curvature metrics.
+      These objects connect Kähler geometry with Berezin quantization, Bergman kernels and the
+      Szegő kernel, and they are a recurring theme in our work, for example in the study of the
+      Bergman metric of Hartogs and Cartan–Hartogs domains.
+
+    - "## Current directions"
+    - - "Kähler duality and projective embeddings."
+      - "Universal embeddings of flag manifolds and rigidity phenomena."
+      - "The Bergman metric of Cartan–Hartogs domains and of symmetric spaces, and Bergman–Einstein rigidity."
+      - "Radial projectively induced canonical Kähler metrics: rigidity and classification."
+      - "The Szegő log-term and local rigidity of Kähler–Einstein polarizations."
+      - "Characterisations of complex projective space via Ehrhart polynomials."
+  reading:
+    - text: "A. Loi, M. Zedda, Kähler Immersions of Kähler Manifolds into Complex Space Forms, Lecture Notes of the Unione Matematica Italiana 23, Springer (2018)"
+    - text: "A. Loi, F. Salis, F. Zuddas, Two conjectures on Ricci-flat Kähler metrics, Math. Z. 290 (2018)"
+      url: "https://link.springer.com/article/10.1007/s00209-017-2033-6"
+    - text: "A. Loi, R. Mossa, F. Zuddas, Kähler duality and projective embeddings, Ann. Sc. Norm. Super. Pisa (2026)"
+      url: "https://doi.org/10.2422/2036-2145.202511_001"
+
+- slug: complex-cohomology
+  title: "Cohomological Properties of Complex Manifolds"
+  icon: "H"
+  text: >
+    Dolbeault, Bott–Chern and Aeppli cohomologies, the $\partial\bar\partial$-lemma, formality
+    and higher operations, and cohomology of almost complex manifolds.
+  people: ["Giovanni Placini", "Beniamino Cappelletti Montano", "Antonio Contrò"]
+  figures:
+    - src: "assets/img/research/hodge-diamond.svg"
+      caption: 'The Hodge diamond of a compact Kähler surface. Conjugation and Serre duality make it symmetric, and the Lefschetz map $L=[\omega]\wedge\cdot$ links $H^1$ and $H^3$.'
+    - src: "assets/img/research/double-complex.svg"
+      caption: 'The double complex $(A^{\bullet,\bullet},\partial,\bar\partial)$ of a complex manifold, with a zigzag in red.'
+  body:
+    - >-
+      Cohomology encodes global topological information of a manifold in algebraic form.
+      On a complex manifold the presence of the complex structure splits differential forms
+      according to their type. This produces a rich family of cohomological invariants, whose
+      relations measure how far the manifold is from being Kähler.
+
+    - "## Cohomologies of a complex manifold"
+    - >-
+      On a complex manifold, complex differential forms decompose into forms of type $(p,q)$,
+      and the exterior derivative splits as $d=\partial+\bar\partial$. Besides de Rham
+      cohomology, one can therefore consider Dolbeault cohomology
+      $H_{\bar\partial}^{p,q}=\ker\bar\partial/\operatorname{im}\bar\partial$, and the
+      Bott–Chern and Aeppli cohomologies:
+    - >-
+      $$H_{BC}^{\bullet,\bullet}=\frac{\ker\partial\cap\ker\bar\partial}{\operatorname{im}\partial\bar\partial},\qquad H_{A}^{\bullet,\bullet}=\frac{\ker\partial\bar\partial}{\operatorname{im}\partial+\operatorname{im}\bar\partial}.$$
+    - >-
+      A manifold satisfies the $\partial\bar\partial$-lemma if every $d$-exact form that is both
+      $\partial$- and $\bar\partial$-closed is $\partial\bar\partial$-exact. In this case all these
+      cohomologies are naturally related. A theorem of Angella and Tomassini characterises the
+      $\partial\bar\partial$-lemma by a numerical equality between the dimensions of the
+      Bott–Chern, Aeppli and de Rham cohomologies.
+    - >-
+      All this information is contained in the double complex
+      $(A^{\bullet,\bullet},\partial,\bar\partial)$. By a structure theorem of J. Stelzig, every
+      such double complex decomposes into elementary pieces, squares and zigzags (see the figure),
+      and the $\partial\bar\partial$-lemma holds exactly when all zigzags are single points. This
+      point of view turns many questions in complex geometry into combinatorial problems about
+      which zigzags can occur.
+
+    - "## Compact Kähler manifolds"
+    - >-
+      Compact Kähler manifolds satisfy the $\partial\bar\partial$-lemma, and their cohomology has
+      strong properties:
+    - - "the Hodge decomposition $H^k(M,\\mathbb{C})=\\bigoplus_{p+q=k}H^{p,q}(M)$ with Hodge symmetry $h^{p,q}=h^{q,p}$, so odd Betti numbers are even;"
+      - "the Hard Lefschetz theorem: wedging with powers of the Kähler class gives isomorphisms $L^k:H^{n-k}(M)\\to H^{n+k}(M)$;"
+      - "formality in the sense of rational homotopy theory (Deligne, Griffiths, Morgan and Sullivan): the real homotopy type is determined by the cohomology ring, and all Massey products vanish."
+    - >-
+      These properties give obstructions for a manifold to carry a Kähler metric, and they have
+      analogues for Sasakian and Vaisman manifolds, for which members of the group proved Hard
+      Lefschetz theorems.
+
+    - "## Higher operations and strong formality"
+    - >-
+      Classical formality only sees the de Rham complex. Taking into account $\partial$ and
+      $\bar\partial$ separately leads to a finer theory, sometimes called pluripotential homotopy
+      theory, with its own notions of formality and of Massey-type higher operations. Recent
+      work of the group shows that compact Kähler manifolds can carry non-trivial higher
+      operations of this kind, invisible to de Rham cohomology. It also studies which classes of
+      Kähler manifolds are strongly formal, for instance toric and homogeneous ones, or
+      hyperkähler manifolds through the theory of multicomplexes.
+
+    - "## Almost complex manifolds"
+    - >-
+      When the almost complex structure $J$ is not integrable, the exterior derivative has four
+      components, $d=\mu+\partial+\bar\partial+\bar\mu$, and $\bar\partial^2\neq0$ in general.
+      Defining good cohomological invariants in this setting is a recent and active topic. At the
+      opposite extreme from complex manifolds lie the maximally non-integrable almost complex
+      structures. Members of the group proved an h-principle for them, showing that they exist in
+      abundance, and studied their cohomological properties.
+
+    - "## Current directions"
+    - - "Non-trivial Massey products and higher operations on compact Kähler manifolds."
+      - "Strong formality of toric, homogeneous and hyperkähler manifolds."
+      - "Relations in the cohomology of Kähler manifolds."
+      - "Cohomology theories for almost complex manifolds."
+      - "Fundamental groups of Sasakian versus Kähler manifolds."
+  reading:
+    - text: "D. Huybrechts, Complex Geometry: An Introduction, Springer (2005)"
+    - text: "D. Angella, Cohomological Aspects in Complex Non-Kähler Geometry, Lecture Notes in Mathematics 2095, Springer (2014)"
+    - text: "G. Placini, J. Stelzig, L. Zoller, Nontrivial Massey products on compact Kähler manifolds, J. Topol. 19 (2026)"
+      url: "https://doi.org/10.1112/topo.70107"
+    - text: "R. Coelho, G. Placini, J. Stelzig, Maximally non-integrable almost complex structures: an h-principle and cohomological properties, Selecta Math. 28 (2022)"
+      url: "https://link.springer.com/article/10.1007/s00029-022-00792-0"
+
+- slug: holomorphic-isometries
+  title: "Holomorphic Isometries of Kähler Manifolds"
+  icon: "ℂ"
+  text: >
+    Kähler immersions into finite and infinite-dimensional complex space forms and into
+    homogeneous spaces, Calabi's diastasis function, relatives and rigidity questions.
+  people: ["Andrea Loi", "Roberto Mossa", "Fabio Zuddas", "Giovanni Placini"]
+  figures:
+    - src: "assets/img/research/poincare-disc.svg"
+      caption: 'The unit disc, the complex hyperbolic line, with some geodesics of its Bergman metric.'
+  body:
+    - >-
+      When can a Kähler manifold be holomorphically and isometrically immersed into another one?
+      In Riemannian geometry, every manifold can be isometrically embedded in a Euclidean space
+      of large dimension, by the Nash embedding theorem. In Kähler geometry the situation is
+      completely different, because a holomorphic isometry is an extremely rigid object. Very few
+      Kähler manifolds admit such an immersion into a given ambient space, and when it exists
+      it is essentially unique.
+
+    - "## Calabi's diastasis function"
+    - >-
+      The question was settled by E. Calabi in 1953 for complex space forms as ambient spaces,
+      that is the flat space $\mathbb{C}^N$, the complex projective space
+      $\mathbb{C}\mathrm{P}^N$ and the complex hyperbolic space $\mathbb{C}\mathrm{H}^N$, with
+      $N\le\infty$. His tool is the diastasis function. If $\Phi$ is a real-analytic Kähler
+      potential, it can be extended to a function $\Phi(z,\bar w)$, holomorphic in $z$ and
+      antiholomorphic in $w$, and one defines
+    - >-
+      $$D(p,q)=\Phi(p,\bar p)+\Phi(q,\bar q)-\Phi(p,\bar q)-\Phi(q,\bar p) .$$
+    - >-
+      Unlike the potential, the diastasis does not depend on any choice. Above all, it is
+      hereditary: if $f:M\to S$ is a holomorphic isometry, then the diastasis of $M$ is the
+      restriction of that of $S$. For the complex space forms, the diastasis centred at the
+      origin is $|z|^2$, $\log(1+|z|^2)$ and $-\log(1-|z|^2)$, respectively.
+    - >-
+      This leads to Calabi's criterion: a Kähler manifold admits a local holomorphic isometry into
+      $\mathbb{C}\mathrm{P}^N$ if and only if a Hermitian matrix built from the power series
+      expansion of $e^{D}-1$ is positive semidefinite of rank at most $N$. The analogous
+      statements hold for $\mathbb{C}^N$ and $\mathbb{C}\mathrm{H}^N$. Calabi also proved
+      a rigidity theorem: when such an immersion exists, it is unique up to rigid motions of
+      the ambient space.
+
+    - "## Canonical metrics and projectively induced metrics"
+    - >-
+      A Kähler metric is called projectively induced when it admits a holomorphic isometry into
+      a finite or infinite-dimensional complex projective space. Many natural questions arise
+      when this condition is combined with a curvature condition. Which Kähler–Einstein,
+      extremal or Ricci-flat metrics are projectively induced? Which Kähler–Ricci solitons can
+      be immersed in a complex space form? The group has obtained several classification and
+      non-existence results in this direction, and has formulated conjectures, for instance
+      on Ricci-flat metrics induced by the infinite-dimensional projective space. Projectively
+      induced metrics are also closely related to quantization and to balanced metrics. See the
+      page on Complex and Kähler Geometry.
+
+    - "## Homogeneous ambient spaces and bounded domains"
+    - >-
+      Beyond complex space forms, a natural class of ambient spaces is that of homogeneous
+      Kähler manifolds. These include flag manifolds, bounded symmetric domains with their
+      Bergman metric, and more general homogeneous bounded domains. Our recent results include:
+    - - "rigidity properties of holomorphic isometries into homogeneous Kähler manifolds;"
+      - "holomorphic isometries into homogeneous bounded domains and into blow-ups of $\\mathbb{C}^n$;"
+      - "Gromov–Hausdorff limits of holomorphic isometries;"
+      - "universal embeddings of flag manifolds;"
+      - "polydisk theorems and Bergman metrics for Hartogs and Cartan–Hartogs domains."
+
+    - "## Relatives"
+    - >-
+      Two Kähler manifolds are called relatives if they share a common Kähler submanifold, that
+      is, a Kähler manifold that can be holomorphically and isometrically immersed in both.
+      Umehara proved that two complex space forms whose holomorphic sectional curvatures have
+      different signs are not relatives. Understanding which Kähler manifolds are relatives, in
+      a weak or strict sense, is a way of measuring how different their geometries are.
+
+    - "## The Sasakian counterpart"
+    - >-
+      Sasakian manifolds are the odd-dimensional siblings of Kähler manifolds, and many of these
+      questions have a Sasakian analogue. Examples are Sasakian immersions into Sasakian space
+      forms, $\eta$-Einstein Sasakian immersions, immersions of Sasaki–Ricci solitons, and the
+      approximation of Sasakian structures by embeddings into spheres. See the page on Sasakian
+      and Vaisman Manifolds.
+
+    - "## Current directions"
+    - - "Kähler duality and projective embeddings."
+      - "Rigidity phenomena for universal embeddings of flag manifolds."
+      - "Bergman–Einstein rigidity for Hartogs domains over bounded homogeneous domains."
+      - "The polydisk theorem for Hartogs domains over symmetric domains."
+      - "Weak and strict relatives of Kähler manifolds."
+  reading:
+    - text: "E. Calabi, Isometric imbedding of complex manifolds, Ann. of Math. 58 (1953)"
+    - text: "A. Loi, M. Zedda, Kähler Immersions of Kähler Manifolds into Complex Space Forms, Lecture Notes of the Unione Matematica Italiana 23, Springer (2018)"
+    - text: "A. Loi, R. Mossa, Rigidity properties of holomorphic isometries into homogeneous Kähler manifolds, Proc. Amer. Math. Soc. 152 (2024)"
+      url: "https://doi.org/10.1090/proc/16754"
+
+- slug: special-surfaces
+  title: "Special Surfaces in Riemannian Manifolds"
+  icon: "Σ"
+  text: >
+    Invariant, minimal, constant mean curvature, helix and constant-angle surfaces
+    in homogeneous three-dimensional spaces; loxodromes, Ricci surfaces and the
+    Weierstrass representation.
+  people: ["Stefano Montaldo", "Irene Onnis"]
+  figures:
+    - src: "assets/img/research/loxodrome.svg"
+      caption: 'A loxodrome on the sphere meets every meridian at the same angle.'
+    - src: "assets/img/research/enneper.svg"
+      caption: 'Enneper''s minimal surface, given by the Weierstrass data $g(z)=z$, $\omega=dz$.'
+  body:
+    - >-
+      The classical differential geometry of surfaces in Euclidean space is full of beautiful
+      special classes: surfaces of revolution, helicoids, minimal surfaces, surfaces of
+      constant mean curvature. Much of our work consists in understanding what these classes
+      become when the ambient space is a curved three-dimensional manifold, and in using them
+      as a laboratory to explore the geometry of the ambient space itself.
+
+    - "## Homogeneous three-dimensional spaces"
+    - >-
+      The natural ambient spaces are the homogeneous Riemannian three-manifolds, which include
+      most of Thurston's model geometries. A large family is formed by the
+      Bianchi–Cartan–Vranceanu spaces, given for $\kappa,\tau\in\mathbb{R}$ by the metrics
+    - >-
+      $$ds^2=\frac{dx^2+dy^2}{\big(1+\frac{\kappa}{4}(x^2+y^2)\big)^2}+\Big(dz+\tau\,\frac{y\,dx-x\,dy}{1+\frac{\kappa}{4}(x^2+y^2)}\Big)^2 .$$
+    - >-
+      Depending on $\kappa$ and $\tau$, they describe Euclidean space, the products
+      $\mathbb{S}^2\times\mathbb{R}$ and $\mathbb{H}^2\times\mathbb{R}$, the Heisenberg group
+      $\mathrm{Nil}_3$, the Berger spheres and the universal cover of $\mathrm{SL}(2,\mathbb{R})$.
+      All of them are Riemannian submersions over a surface of constant curvature $\kappa$, whose
+      fibres are the integral curves of a unit Killing vector field. Lorentzian versions, such
+      as the Lorentzian Berger spheres and Berger-like metrics on anti-de Sitter space, are also
+      part of our research.
+
+    - "## Invariant surfaces and Bour's theorem"
+    - >-
+      Invariant surfaces generalise the classical surfaces of revolution in $\mathbb{R}^3$:
+      they are invariant under a one-parameter group of isometries of the ambient space. Their
+      geometry reduces to the study of a profile curve in the orbit space, so differential
+      equations for the surface become ordinary differential equations. They provide a class of
+      remarkable explicit examples, whose study helps to understand the geometry of curved spaces.
+    - >-
+      A classical theorem of E. Bour (1862) says that every helicoidal surface in $\mathbb{R}^3$
+      is isometric to a surface of revolution. Members of the group extended Bour's theorem to
+      helicoidal surfaces with constant mean curvature in the Bianchi–Cartan–Vranceanu spaces,
+      and more recently to invariant surfaces in general three-manifolds.
+
+    - "## Helix surfaces, constant angle surfaces and loxodromes"
+    - >-
+      A helix surface, or constant angle surface, is a surface whose normal vector forms a
+      constant angle with a fixed direction of the space. In Euclidean space the direction is
+      a constant vector. In a Berger sphere the natural choice is the Hopf vector field, which
+      generates the fibres of the Hopf fibration. We have classified the helix surfaces in the
+      Berger spheres, the constant angle surfaces in the Lorentzian Berger spheres, and the
+      helix surfaces for Berger-like metrics on anti-de Sitter space.
+    - >-
+      Closely related are the curves on invariant surfaces that form a constant angle with a
+      Killing vector field. These curves are known as loxodromes, and they generalise the
+      route a ship would follow on the ocean when sailing by compass.
+
+    - "## Minimal surfaces and the Weierstrass representation"
+    - >-
+      Minimal surfaces in $\mathbb{R}^3$ can be described by the Weierstrass representation.
+      Given a meromorphic function $g$ (the Gauss map, read through stereographic projection)
+      and a holomorphic $1$-form $\omega$ on a Riemann surface, the immersion
+    - >-
+      $$X=\operatorname{Re}\int\Big(\tfrac12(1-g^2)\,\omega,\ \tfrac{i}{2}(1+g^2)\,\omega,\ g\,\omega\Big)$$
+    - >-
+      is minimal, and every minimal surface arises in this way. This technique makes it possible
+      to construct complete minimal surfaces with given topology, such as the celebrated
+      Costa–Hoffman–Meeks surfaces. Members of the group recently constructed a family of
+      complete minimal surfaces of higher genus that includes the Costa–Hoffman–Meeks ones.
+    - >-
+      Another classical construction is the Björling problem: finding a minimal surface that
+      contains a given curve with a prescribed normal along it. We solved it in
+      three-dimensional Lie groups. We also study correspondences between minimal surfaces in
+      Lorentz–Minkowski space $\mathbb{L}^3$ and solutions of the Liouville equation.
+
+    - "## Ricci surfaces"
+    - >-
+      Which abstract surfaces can be realised as minimal surfaces? G. Ricci-Curbastro showed that
+      a metric $g$ with negative Gauss curvature $K$ is locally the metric of a minimal surface
+      in $\mathbb{R}^3$ if and only if the metric $\sqrt{-K}\,g$ is flat. An analogous condition
+      with $1-K$ in place of $-K$ characterises minimal surfaces in the three-sphere. Surfaces
+      satisfying these conditions, called Ricci surfaces and spherical Ricci surfaces, form a
+      rich class. For instance, we have classified the spherical Ricci tori with rotational
+      symmetry.
+
+    - "## Current directions"
+    - - "Bour-type theorems and isometric deformations of invariant surfaces."
+      - "Complete minimal surfaces of higher genus via the Weierstrass representation."
+      - "Spacelike and timelike minimal surfaces in Lorentz–Minkowski space."
+      - "Ricci and spherical Ricci surfaces."
+      - "Bonnet surfaces and isothermic surfaces."
+      - "Helix surfaces and loxodromes in homogeneous and Lorentzian spaces."
+  reading:
+    - text: "S. Montaldo, I. I. Onnis, Helix surfaces in the Berger sphere, Israel J. Math. 201 (2014)"
+      url: "https://link.springer.com/article/10.1007/s11856-014-1055-6"
+    - text: "R. Caddeo, I. I. Onnis, P. Piu, Bour's theorem and helicoidal surfaces with constant mean curvature in the Bianchi–Cartan–Vranceanu spaces, Ann. Mat. Pura Appl. 201 (2022)"
+      url: "https://link.springer.com/article/10.1007/s10231-021-01143-0"
+    - text: "I. I. Onnis, B. C. Valério, J. A. M. Vilhena, A family of higher genus complete minimal surfaces that includes the Costa–Hoffman–Meeks one, Ann. Mat. Pura Appl. 204 (2025)"
+      url: "https://doi.org/10.1007/s10231-025-01578-9"
+
+- slug: sasakian-vaisman
+  title: "Sasakian and Vaisman Manifolds"
+  icon: "ξ"
+  text: >
+    Geometry and topology of Sasakian and Vaisman manifolds: Hard Lefschetz theorems,
+    fundamental groups, $\eta$-Einstein structures, approximation and immersion results.
+  people: ["Gianluca Bande", "Beniamino Cappelletti Montano", "Andrea Loi", "Giovanni Placini"]
+  figures:
+    - src: "assets/img/research/hopf-fibration.svg"
+      caption: 'Hopf fibres on a torus are Villarceau circles, and any two of them are linked.'
+  body:
+    - >-
+      A very important example of one-dimensional foliations is given by Sasakian manifolds.
+      These spaces are unions of circles, each corresponding to a point of a Kähler manifold.
+      Sasakian manifolds are therefore the odd-dimensional siblings of Kähler manifolds. As with
+      Kähler manifolds, the many relations between the geometry and the topology of these spaces
+      are particularly interesting to study.
+
+    - "## Sasakian manifolds"
+    - >-
+      A Riemannian manifold $(M^{2n+1},g)$ is Sasakian when its metric cone is Kähler:
+    - >-
+      $$\big(M\times\mathbb{R}^{+},\ dr^2+r^2 g\big)\ \text{is a Kähler manifold.}$$
+    - >-
+      Equivalently, $M$ carries a normal contact metric structure $(\varphi,\xi,\eta,g)$. The
+      Reeb vector field $\xi$ is a unit Killing field, and the space of its orbits carries,
+      at least locally, a Kähler structure. The basic example is the odd-dimensional sphere
+      $\mathbb{S}^{2n+1}$, fibred by the circles of the Hopf fibration over
+      $\mathbb{C}\mathrm{P}^n$.
+    - >-
+      When all orbits of $\xi$ are closed and the action of the circle is free, the structure is
+      called regular. By the Boothby–Wang theorem, $M$ is then a circle bundle over a compact
+      Kähler manifold with integral Kähler class. Quasi-regular structures fibre over Kähler
+      orbifolds, while irregular ones have non-closed orbits. Every Sasakian structure can be
+      deformed into quasi-regular ones. Results of the group make this precise: any Sasakian
+      structure can be approximated by embeddings into spheres, which is a Sasakian analogue of
+      the Kodaira embedding theorem, and regular Sasakian manifolds can be approximated as well.
+
+    - "## Einstein and $\\eta$-Einstein metrics"
+    - >-
+      A Sasakian manifold is $\eta$-Einstein if its Ricci tensor has the form
+    - >-
+      $$\mathrm{Ric}=\lambda\, g+\nu\,\eta\otimes\eta ,$$
+    - >-
+      and Sasaki–Einstein when $\nu=0$, which forces $\lambda=2n$. Sasaki–Einstein manifolds are
+      exactly the links of Ricci-flat Kähler cones, and they play a role in theoretical physics.
+      We have studied $\eta$-Einstein Sasakian immersions in Sasakian space forms, immersions of
+      Sasaki–Ricci solitons into homogeneous Sasakian manifolds, and the relations between
+      Sasaki–Einstein metrics and other contact metric structures.
+
+    - "## Topology of Sasakian manifolds"
+    - >-
+      Compact Kähler manifolds satisfy strong topological restrictions, and a natural question
+      is which of them survive in the Sasakian world. For example, the Betti numbers
+      $b_{p}$ of a compact Sasakian $(2n+1)$-manifold are even when $p$ is odd and $p\le n$. Members of the group
+      proved a Hard Lefschetz theorem for compact Sasakian manifolds. The Lefschetz map
+    - >-
+      $$H^{n-k}(M)\longrightarrow H^{n+k+1}(M),\qquad [\beta]\longmapsto\big[\eta\wedge(d\eta)^k\wedge\beta\big]$$
+    - >-
+      (defined on harmonic representatives) is an isomorphism, and it does not depend on the
+      compatible Sasakian metric. This gives new obstructions, and it produces examples of
+      contact manifolds that carry K-contact but no Sasakian structures. More recently we have
+      compared Sasaki groups, the fundamental groups of compact Sasakian manifolds, with Kähler
+      groups.
+
+    - "## Vaisman manifolds"
+    - >-
+      A Hermitian manifold is locally conformally Kähler (lcK) if its fundamental form satisfies
+    - >-
+      $$d\omega=\theta\wedge\omega,\qquad d\theta=0,$$
+    - >-
+      so that locally the metric is conformal to a Kähler one. It is Vaisman if the Lee form
+      $\theta$ is parallel. The standard examples are the Hopf manifolds
+      $\mathbb{S}^{2n-1}\times\mathbb{S}^1$, which carry no Kähler metric. Vaisman manifolds are
+      intimately related to Sasakian geometry. Locally they are products of a Sasakian
+      manifold and a line, and by a theorem of Ornea and Verbitsky a compact Vaisman manifold
+      is a mapping torus of a Sasakian manifold. The group proved a Hard Lefschetz theorem for
+      compact Vaisman manifolds, and recently obtained approximation results for them.
+
+    - "## Current directions"
+    - - "Approximation results for compact Sasakian and Vaisman manifolds."
+      - "Sasaki groups versus Kähler groups."
+      - "Quasi-contact metric structures from Sasaki–Einstein metrics."
+      - "Einstein contact metrics with integrable CR structure."
+      - "Immersions into Sasakian space forms and homogeneous Sasakian manifolds."
+  reading:
+    - text: "C. P. Boyer, K. Galicki, Sasakian Geometry, Oxford University Press (2008)"
+    - text: "L. Ornea, M. Verbitsky, Principles of Locally Conformally Kähler Geometry, Birkhäuser (2024)"
+    - text: "B. Cappelletti-Montano, A. De Nicola, I. Yudin, Hard Lefschetz theorem for Sasakian manifolds, J. Differential Geom. 101 (2015)"
+      url: "https://projecteuclid.org/journals/journal-of-differential-geometry/volume-101/issue-1/Hard-Lefschetz-theorem-for-Sasakian-manifolds/10.4310/jdg/1433975483.full"
+
+- slug: spectral-geometry
+  title: "Spectral Geometry"
+  icon: "λ"
+  text: >
+    Eigenvalues and eigenfunctions of the Laplacian, Steklov and magnetic operators:
+    sharp bounds, isoperimetric problems, nodal sets and the influence of curvature.
+  people: ["Luigi Provenzano"]
+  figures:
+    - src: "assets/img/research/nodal-square.svg"
+      caption: 'Level lines of a Dirichlet eigenfunction of the square. The nodal line, in red, splits it into two nodal domains.'
+    - src: "assets/img/research/nodal-disc.svg"
+      caption: 'A vibrating drum: an eigenfunction of the disc, with its nodal set in red.'
+  body:
+    - >-
+      Can one hear the shape of a drum? This famous question, asked by M. Kac in 1966, summarises
+      the spirit of spectral geometry. The field studies how the geometry of a domain or of a
+      Riemannian manifold is reflected in the spectrum of natural differential operators. The
+      spectrum is the set of frequencies at which the drum can vibrate. Conversely, the field asks
+      what the eigenvalues and eigenfunctions tell us about the shape of the space.
+
+    - "## Eigenvalues of the Laplacian"
+    - >-
+      The basic model is the eigenvalue problem for the Laplacian on a bounded domain
+      $\Omega\subset\mathbb{R}^n$, or on a compact Riemannian manifold, with suitable boundary
+      conditions. For example, with Dirichlet conditions:
+    - >-
+      $$-\Delta u=\lambda u\ \ \text{in }\Omega,\qquad u=0\ \ \text{on }\partial\Omega .$$
+    - >-
+      The eigenvalues form a sequence $0<\lambda_1<\lambda_2\le\lambda_3\le\dots\to\infty$. Weyl's
+      law says that their asymptotic distribution only depends on the volume of $\Omega$. Finer
+      information is encoded in individual eigenvalues. The Faber–Krahn inequality states that
+      among all domains of given volume the ball has the smallest first eigenvalue, the
+      mathematical reason why drums are round. Typical questions are sharp bounds for eigenvalues
+      in terms of geometric quantities, the identification of optimal shapes, and the dependence
+      of the spectrum on the metric and on the domain.
+
+    - "## Nodal domains and critical points"
+    - >-
+      The zero set of an eigenfunction, its nodal set, divides the domain into nodal domains.
+      These are the patterns that E. Chladni made visible by scattering sand on vibrating plates.
+      Courant's theorem states that the $k$-th Dirichlet eigenfunction has at most $k$ nodal
+      domains. We study nodal sets and critical points of eigenfunctions and of solutions of
+      elliptic equations, including:
+    - - "the non-existence of Courant-type bounds for eigenfunctions of the Dirichlet-to-Neumann operator;"
+      - "the critical points of Steklov eigenfunctions;"
+      - "critical points of semi-stable solutions on convex domains of Riemannian surfaces, and the role of the curvature of the surface in the shape of the solutions."
+
+    - "## The Steklov problem"
+    - >-
+      In the Steklov problem the spectral parameter appears in the boundary condition:
+    - >-
+      $$\Delta u=0\ \ \text{in }\Omega,\qquad \frac{\partial u}{\partial\nu}=\sigma\,u\ \ \text{on }\partial\Omega .$$
+    - >-
+      The Steklov eigenvalues are the eigenvalues of the Dirichlet-to-Neumann operator, which maps
+      the boundary values of a harmonic function to its normal derivative. The problem models,
+      for instance, sloshing liquids and is related to inverse problems such as electrical
+      impedance tomography. Our work includes bounds for the first Steklov eigenvalue of planar
+      domains, regularity of Steklov and Robin eigenfunctions on convex domains, and the magnetic
+      Steklov problem on Riemannian annuli.
+
+    - "## Magnetic Laplacians"
+    - >-
+      In the presence of a magnetic field, described by a potential $1$-form $A$, the Laplacian
+      is replaced by the magnetic Laplacian $\Delta_A=(d-iA)^*(d-iA)$. Its spectrum depends on the
+      interplay between the magnetic field and the geometry and topology of the domain. We have
+      proved geometric bounds for magnetic Neumann eigenvalues in the plane, a reverse
+      Faber–Krahn inequality for the magnetic Laplacian, in which the disc becomes a maximiser,
+      and studied the relation between magnetic ground states and the conformal class of a surface.
+
+    - "## Homogeneous spaces, spheres and thin domains"
+    - >-
+      On compact homogeneous Riemannian manifolds, symmetry makes it possible to obtain sum rules
+      and sharp eigenvalue bounds. On spheres one can prove semiclassical estimates for
+      eigenvalue means. Other topics include eigenvalues of sub-elliptic operators such as the
+      Grushin operator, and the asymptotic behaviour of eigenvalues of the biharmonic operator and
+      of Maxwell's equations on thin domains.
+
+    - "## Current directions"
+    - - "Isoperimetric inequalities for the first positive Neumann eigenvalue on the sphere."
+      - "Magnetic ground states and the conformal geometry of surfaces."
+      - "Nodal sets and critical points of Steklov eigenfunctions."
+      - "Spectral problems on thin sets and singular limits."
+  reading:
+    - text: "A. Henrot, Extremum Problems for Eigenvalues of Elliptic Operators, Birkhäuser (2006)"
+    - text: "A. Girouard, I. Polterovich, Spectral geometry of the Steklov problem, J. Spectral Theory 7 (2017)"
+    - text: "B. Colbois, C. Léna, L. Provenzano, A. Savo, A reverse Faber-Krahn inequality for the magnetic Laplacian, J. Math. Pures Appl. 192 (2024)"
+      url: "https://doi.org/10.1016/j.matpur.2024.103632"

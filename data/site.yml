@@ -1,0 +1,43 @@
+# General information about the group
+name: "DG-UniCa"
+full_name: "Differential Geometry Group"
+university: "University of Cagliari"
+university_url: "https://www.unica.it"
+department: "Department of Mathematics and Computer Science"
+department_url: "https://web.unica.it/unica/it/dip_matinfo.page"
+tagline: "Differential Geometry and Topology at UniCa"
+
+# Short introduction shown on the home page (DRAFT, please review)
+intro: >
+  We are the Differential Geometry and Topology group of the Department of
+  Mathematics and Computer Science at the University of Cagliari, Sardinia.
+
+address:
+  - "Department of Mathematics and Computer Science"
+  - "University of Cagliari"
+  - "Via Ospedale 72, 09124 Cagliari, Italy"
+map_url: "https://www.openstreetmap.org/search?query=Via%20Ospedale%2072%20Cagliari"
+
+# Group email: TODO, add one if you have it
+email: ""
+
+# Opportunities for students (from the Open Week 2024 poster, translated)
+opportunities:
+  master:
+    - "Polyharmonic curves and surfaces in Riemannian manifolds"
+    - "Stability and minimality properties of polyharmonic maps"
+    - "Invariant surfaces and loxodromes"
+    - "Bonnet surfaces and isothermic surfaces"
+    - "Ricci surfaces"
+    - "Minimal surfaces in Euclidean space and maximal surfaces in Lorentz–Minkowski space"
+    - "Relations in the cohomology of Kähler manifolds"
+    - "Characteristic classes"
+    - "The Hirzebruch–Riemann–Roch theorem"
+    - "Gromov's non-squeezing theorem"
+    - "Cohomology theories of almost complex manifolds"
+    - "The Boothby–Wang theorem"
+  phd:
+    - "Higher operations in the cohomology of Kähler manifolds"
+    - "Rigidity properties in Kähler geometry"
+    - "Rigidity problems for polyharmonic immersions"
+    - "Polyharmonic hypersurfaces in pseudo-Riemannian manifolds"

@@ -1,0 +1,12 @@
+# Visitors of the group currently in the department, shown on the home page.
+# Fields: name, affiliation, and optionally url, from, until (YYYY-MM-DD), host.
+# With "until", a visitor disappears automatically after that day;
+# with "from", they appear only from that day. Without dates, remove the entry by hand.
+
+visitors:
+  - name: "Lapo Rubini"
+    affiliation: "Università di Firenze"
+  - name: "Federico Thiella"
+    affiliation: "Università di Firenze"
+  - name: "Rebecca Sempio"
+    affiliation: "Università degli Studi di Padova"
