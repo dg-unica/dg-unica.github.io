@@ -8,7 +8,6 @@ const NAV = [
   ["events.html", "Events"],
   ["publications.html", "Publications"],
   ["preprints.html", "Preprints"],
-  ["contact.html", "Contact"],
 ];
 
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -53,7 +52,7 @@ function buildChrome(site) {
   const footer = document.createElement("footer");
   footer.innerHTML = `
     <div class="wrap foot-right">
-      <div class="foot-addr">${site.address.map((l) => l === site.university ? link(site.university_url, esc(l)) : l === site.department ? link(site.department_url, esc(l)) : esc(l)).join("<br>")}</div>
+      <div class="foot-addr">${site.address.map((l) => l === site.university ? link(site.university_url, esc(l)) : l === site.department ? link(site.department_url, esc(l)) : link(site.map_url, esc(l))).join("<br>")}</div>
       ${link(site.department_url, `<img class="foot-logo" src="assets/img/logo-dmi.png" alt="Department of Mathematics and Computer Science (DMI)">`)}
     </div>`;
   document.body.append(footer);
@@ -351,17 +350,6 @@ const pages = {
       count.textContent = `${n} publication${n === 1 ? "" : "s"}`;
     };
     q.addEventListener("input", apply); sel.addEventListener("change", apply); ysel.addEventListener("change", apply); apply();
-  },
-
-  async contact(main, site) {
-    const sem = await load("seminars");
-    main.innerHTML = `
-      <section class="page-head"><div class="wrap"><h1>Contact</h1><p>Interested in our research, in a PhD position or in visiting us? Get in touch with any member of the group.</p></div></section>
-      <section class="block"><div class="wrap two-col">
-        <div class="card"><h3>Address</h3><p>${site.address.map(esc).join("<br>")}</p><p style="margin-top:12px">${link(site.map_url, "Open map →")}</p></div>
-        <div class="card"><h3>Seminars</h3><p>${esc(sem.title)}<br>${esc(sem.schedule)}, ${esc(sem.room)}</p>
-          ${site.email ? `<h3 style="margin-top:18px">Email</h3><p><a href="mailto:${esc(site.email)}">${esc(site.email)}</a></p>` : ""}</div>
-      </div></section>`;
   },
 };
 

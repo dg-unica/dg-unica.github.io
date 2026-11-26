@@ -280,3 +280,5 @@ footer .foot-right .foot-addr { text-align: right; }
 .visitors .stay .d { font-size: 1.25rem; white-space: nowrap; }
 .visitors .stay .d.small { font-size: .95rem; padding: 4px 0 2px; }
 .visitors ul { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+/* onnis.jpg is already cropped to a tight circle: show it whole, without the extra zoom */
+.avatar img[src$="onnis.jpg"] { transform: none; }
