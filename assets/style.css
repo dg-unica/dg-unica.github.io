@@ -273,3 +273,10 @@ footer .foot-right .foot-addr { text-align: right; }
 .arxiv-link:first-child { margin-left: 0; }
 .preprints .section-title { margin: 0; }
 .brand-mark { flex: none; }
+.visitors .visitors-next { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
+.visitors .avatar { overflow: hidden; }
+.visitors .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.visitors .stay { flex: none; width: 74px; padding: 6px 0; }
+.visitors .stay .d { font-size: 1.25rem; white-space: nowrap; }
+.visitors .stay .d.small { font-size: .95rem; padding: 4px 0 2px; }
+.visitors ul { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }

@@ -1,12 +1,22 @@
 # Visitors of the group currently in the department, shown on the home page.
-# Fields: name, affiliation, and optionally url, from, until (YYYY-MM-DD), host.
+# Fields: name, affiliation, and optionally url, from, until (YYYY-MM-DD).
+# The period is shown next to the name; from the 1st to the last day of a month shows only the months.
 # With "until", a visitor disappears automatically after that day;
 # with "from", they appear only from that day. Without dates, remove the entry by hand.
 
 visitors:
-  - name: "Lapo Rubini"
-    affiliation: "Università di Firenze"
-  - name: "Federico Thiella"
-    affiliation: "Università di Firenze"
   - name: "Rebecca Sempio"
     affiliation: "Università degli Studi di Padova"
+    url: "https://www.math.unipd.it/dipartimento/persone/rebecca.sempio/"
+    from: "2026-11-09"
+    until: "2026-11-27"
+  - name: "Rebecca Sempio"
+    affiliation: "Università degli Studi di Padova"
+    url: "https://www.math.unipd.it/dipartimento/persone/rebecca.sempio/"
+    from: "2027-04-01"
+    until: "2027-05-31"
+  - name: "Cezar Oniciuc"
+    affiliation: "Alexandru Ioan Cuza University of Iași"
+    url: "https://www.math.uaic.ro/~oniciucc/index.html"
+    from: "2027-05-01"
+    until: "2027-05-30"

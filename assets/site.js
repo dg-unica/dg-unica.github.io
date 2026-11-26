@@ -141,6 +141,25 @@ const pages = {
     const [sem, pre, vis] = await Promise.all([load("seminars"), load("preprints").catch(() => ({})), load("visitors").catch(() => ({}))]);
     const now = today();
     const visitors = (vis.visitors || []).filter((v) => (!v.from || parseDate(v.from) <= now) && (!v.until || parseDate(v.until) >= now));
+    const expected = (vis.visitors || []).filter((v) => v.from && parseDate(v.from) > now).sort((a, b) => parseDate(a.from) - parseDate(b.from));
+    // Period of stay in a date box: "NOV / 9–27 / 2026"; whole months: "APR–MAY / 2027"
+    const mon = (d) => d.toLocaleDateString("en-GB", { month: "short", timeZone: "UTC" });
+    const stay = (v) => {
+      if (!v.from && !v.until) return "";
+      const f = parseDate(v.from || v.until), u = parseDate(v.until || v.from);
+      const lastDay = new Date(Date.UTC(u.getUTCFullYear(), u.getUTCMonth() + 1, 0)).getUTCDate();
+      const months = mon(f) === mon(u) && f.getUTCFullYear() === u.getUTCFullYear() ? mon(f) : `${mon(f)}–${mon(u)}`;
+      const years = f.getUTCFullYear() === u.getUTCFullYear() ? f.getUTCFullYear() : `${f.getUTCFullYear()}–${String(u.getUTCFullYear()).slice(2)}`;
+      if (v.from && v.until && f.getUTCDate() === 1 && u.getUTCDate() === lastDay)
+        return `<div class="date-box stay"><div class="d small">${months}</div><div class="m">${years}</div></div>`;
+      const days = !v.from ? `–${u.getUTCDate()}` : !v.until ? `${f.getUTCDate()}–` : `${f.getUTCDate()}–${u.getUTCDate()}`;
+      return `<div class="date-box stay"><div class="m">${months}</div><div class="d">${days}</div><div class="m">${years}</div></div>`;
+    };
+    const visitorRow = (v) => `<li>
+              ${stay(v)}
+              <div><div class="vname">${link(v.url, esc(v.name))}</div>
+              <div class="vaff">${esc(v.affiliation || "")}</div></div>
+            </li>`;
     const preprints = (pre.preprints || []).slice(0, 5);
     const { upcoming } = splitTalks(sem);
     main.innerHTML = `
@@ -158,14 +177,12 @@ const pages = {
         <div>
           <div class="section-title"><h2>Upcoming seminars</h2><a href="seminars.html">All seminars →</a></div>
           ${upcoming.length ? upcoming.slice(0, 3).map((t, i) => talkRow(t, i === 0)).join("") : `<p class="empty">No seminars scheduled at the moment.</p>`}
-          ${visitors.length ? `<div class="visitors">
+          ${visitors.length || expected.length ? `<div class="visitors">
             <h2>Visitors</h2>
-            <p class="preprints-sub">Currently visiting the group</p>
-            <ul>${visitors.map((v) => `<li>
-              <span class="avatar">${esc(initials(v.name))}</span>
-              <div><div class="vname">${link(v.url, esc(v.name))}</div>
-              <div class="vaff">${esc(v.affiliation || "")}${v.until ? ` · until ${parseDate(v.until).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}` : ""}</div></div>
-            </li>`).join("")}</ul>
+            ${visitors.length ? `<p class="preprints-sub">Currently visiting the group</p>
+            <ul>${visitors.map(visitorRow).join("")}</ul>` : ""}
+            ${expected.length ? `<p class="preprints-sub visitors-next">Expected visitors</p>
+            <ul>${expected.map(visitorRow).join("")}</ul>` : ""}
           </div>` : ""}
         </div>
         ${preprints.length ? `<aside class="preprints">

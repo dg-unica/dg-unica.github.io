@@ -11,6 +11,7 @@
   year: 2026
   url: "https://doi.org/10.1016/j.jalgebra.2026.01.048"
   arxiv: "https://arxiv.org/abs/2507.06214"
+  topics: [skew-braces]
 - authors: "M. Damele, F. Mastrogiacomo"
   title: "Finite groups in which every proper characteristic subgroup is cyclic"
   journal: "Mediterr. J. Math."

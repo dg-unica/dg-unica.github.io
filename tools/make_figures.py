@@ -408,8 +408,94 @@ def nodal_disc():
     save("nodal-disc.svg", svg(body))
 
 
+def yang_baxter():
+    """Braid form of the Yang-Baxter equation: s1 s2 s1 = s2 s1 s2 on three strands."""
+    gap, step, top = 62, 105, 60
+    colors = [NAVY, RED, GREY]
+
+    def strand(x0, x1, y0, ts):
+        pts = []
+        for t in ts:  # cubic Bezier with vertical tangents from (x0, y0) to (x1, y0 + step)
+            u = 1 - t
+            x = u ** 3 * x0 + 3 * u * u * t * x0 + 3 * u * t * t * x1 + t ** 3 * x1
+            y = y0 + step * (1.5 * u * u * t + 1.5 * u * t * t + t ** 3)
+            pts.append(f"{x:.1f} {y:.1f}")
+        return "M" + "L".join(pts)
+
+    def braid(cx, word):
+        xs = [cx + (k - 1) * gap for k in range(3)]
+        pos = [0, 1, 2]  # pos[j] = strand currently at position j
+        out = ""
+        for level, i in enumerate(word):
+            y0 = top + level * step
+            for j in range(3):
+                if j not in (i, i + 1):
+                    out += f'<path d="M{xs[j]:.1f} {y0}L{xs[j]:.1f} {y0 + step}" stroke="{colors[pos[j]]}" stroke-width="5" fill="none" stroke-linecap="round"/>'
+            a, b = pos[i], pos[i + 1]
+            ts = [k / 40 for k in range(41)]
+            under = strand(xs[i + 1], xs[i], y0, [t for t in ts if t <= .36]) + strand(xs[i + 1], xs[i], y0, [t for t in ts if t >= .64])
+            over = strand(xs[i], xs[i + 1], y0, ts)
+            out += f'<path d="{under}" stroke="{colors[b]}" stroke-width="5" fill="none" stroke-linecap="round"/>'
+            out += f'<path d="{over}" stroke="{colors[a]}" stroke-width="5" fill="none" stroke-linecap="round"/>'
+            pos[i], pos[i + 1] = b, a
+        for j in range(3):
+            for y in (top, top + 3 * step):
+                out += f'<circle cx="{xs[j]:.1f}" cy="{y}" r="5" fill="{colors[(0, 1, 2)[j] if y == top else pos[j]]}"/>'
+        return out
+
+    body = braid(165, [0, 1, 0]) + braid(435, [1, 0, 1])
+    body += text(300, top + 1.5 * step + 12, "=", 44, NAVY, italic=False)
+    body += text(165, top + 3 * step + 50, "r₁₂ r₂₃ r₁₂", 32) + text(435, top + 3 * step + 50, "r₂₃ r₁₂ r₂₃", 32)
+    save("yang-baxter.svg", svg(body))
+
+
+def biharmonic_torus():
+    """The map T^2 -> S^2, (g, t) -> (k g, alpha): equator (harmonic) and the parallel alpha = pi/4."""
+    # torus on the left, depth-shaded wireframe
+    vt = View(rot=0.0, tilt=0.95, scale=78, cx=150, cy=250)
+    R, r = 1.0, 0.42
+    tor = [[((R + r * math.cos(b)) * math.cos(a), (R + r * math.cos(b)) * math.sin(a), r * math.sin(b))
+            for a in lin(0, 2 * math.pi, 72)] for b in lin(0, 2 * math.pi, 10)[:-1]]
+    tor += [[((R + r * math.cos(b)) * math.cos(a), (R + r * math.cos(b)) * math.sin(a), r * math.sin(b))
+             for b in lin(0, 2 * math.pi, 36)] for a in lin(0, 2 * math.pi, 24)[:-1]]
+    body, _ = wire(vt, tor, NAVY, 1.0, amin=0.10, amax=0.75)
+
+    # sphere on the right, faint grid plus two circles
+    vs = View(rot=0.0, tilt=0.32, scale=118, cx=440, cy=215)
+    grid, _ = wire(vs, sphere_grid((0, 0, 0), 1, nlat=8, nlon=12), NAVY, 0.6, amin=0.04, amax=0.22)
+    body += grid + f'<circle cx="440" cy="215" r="118" fill="none" stroke="{NAVY}" stroke-width="1.6"/>'
+
+    def parallel(alpha, color):
+        z, rad = math.cos(alpha), math.sin(alpha)
+        pts = [vs.p((rad * math.cos(t), rad * math.sin(t), z)) for t in lin(0, 2 * math.pi, 120)]
+        # in this view the half with positive depth faces the viewer (lower half of the ellipse)
+        front = "".join(("M" if i == 0 or pts[i - 1][2] <= 0 else "L") + f"{q[0]:.1f} {q[1]:.1f}"
+                        for i, q in enumerate(pts) if q[2] > 0)
+        back = "".join(("M" if i == 0 or pts[i - 1][2] > 0 else "L") + f"{q[0]:.1f} {q[1]:.1f}"
+                       for i, q in enumerate(pts) if q[2] <= 0)
+        return (f'<path d="{back}" stroke="{color}" stroke-width="2.4" stroke-dasharray="7 6" fill="none"/>'
+                f'<path d="{front}" stroke="{color}" stroke-width="3.2" fill="none" stroke-linecap="round"/>')
+
+    body += parallel(math.pi / 2, NAVY) + parallel(math.pi / 4, RED)
+    top = vs.p((-0.45, math.sqrt(0.5 - 0.45 ** 2), math.cos(math.pi / 4)))     # front point of the red circle
+    eq = vs.p((-0.3, math.sqrt(1 - 0.09), 0))                                                 # front point of the equator
+
+    def arrow(p0, c, p1, color):
+        ang = math.atan2(p1[1] - c[1], p1[0] - c[0])
+        return (f'<path d="M{p0[0]:.1f} {p0[1]:.1f}Q{c[0]:.1f} {c[1]:.1f} {p1[0]:.1f} {p1[1]:.1f}" '
+                f'stroke="{color}" stroke-width="2" fill="none"/>' + arrow_head(p1[0], p1[1], ang, color, 12))
+
+    body += arrow((150, 205), (190, 60), (top[0] - 6, top[1] - 8), RED)
+    body += arrow((150, 300), (250, 430), (eq[0] - 2, eq[1] + 10), NAVY)
+    body += text(250, 98, "α = π/4", 24, RED) + text(285, 392, "α = π/2", 24, NAVY)
+    body += text(150, 365, "𝕋²", 30, NAVY, italic=False) + text(565, 330, "𝕊²", 30, NAVY, italic=False)
+    body += text(592, 108, "𝕊¹(1/√2)", 20, RED, italic=False, anchor="end")
+    save("biharmonic-torus.svg", svg(body))
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     for fig in (harmonic_map, catenoid, contact_planes, reeb_component, fubini_study, hodge_diamond,
-                double_complex, poincare_disc, loxodrome, enneper, hopf, nodal_square, nodal_disc):
+                double_complex, poincare_disc, loxodrome, enneper, hopf, nodal_square, nodal_disc,
+                yang_baxter, biharmonic_torus):
         fig()

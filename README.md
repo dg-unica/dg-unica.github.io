@@ -14,7 +14,7 @@ Everything is in the `data/` folder. You do not need to touch the HTML or JS fil
 | `data/events.yml` | Conferences and workshops |
 | `data/publications.yml` | Publications since 2000 |
 | `data/preprints.yml` | Recent arXiv preprints (Preprints page and home page box) |
-| `data/visitors.yml` | Visitors currently in the department (home page); with an `until:` date they disappear by themselves |
+| `data/visitors.yml` | Visitors (home page): current ones, and with a future `from:` date listed as expected; after `until:` they disappear by themselves |
 
 Math can be written in LaTeX between `$...$`.
 

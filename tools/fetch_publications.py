@@ -132,6 +132,8 @@ def guess_topics(text, msc):
     if has("eigenvalue", "eigenfunction", "steklov", "spectral", "spectrum", "laplacian", "nodal",
            "faber", "magnetic") or m("35P", "58J50"):
         topics.append("spectral-geometry")
+    if has("brace", "yang-baxter", "yang–baxter", "semigroup", "post-lie") or m("16T25", "20M"):
+        topics.append("skew-braces")
     return topics
 
 

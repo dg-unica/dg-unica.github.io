@@ -20,12 +20,12 @@
     Critical points of the energy, the bienergy and higher order energies between
     Riemannian manifolds: existence, stability, index and nullity, biharmonic and
     biconservative submanifolds.
-  people: ["Stefano Montaldo", "Andrea Ratto", "Antonio Sanna"]
+  people: ["Stefano Montaldo", "Andrea Ratto", "Irene Onnis", "Antonio Sanna"]
   figures:
-    - src: "assets/img/research/harmonic-map.svg"
-      caption: 'A map $\varphi:M\to N$ from a flat sheet onto a sphere; in red, a line of $M$ and its image.'
     - src: "assets/img/research/catenoid.svg"
-      caption: 'The catenoid, a minimal and hence harmonic immersion in $\mathbb{R}^3$, with its neck circle in red.'
+      caption: 'The catenoid, a minimal and hence harmonic immersion in $\mathbb{R}^3,$ with its neck circle in red.'
+    - src: "assets/img/research/biharmonic-torus.svg"
+      caption: 'The maps $(\gamma,\vartheta)\mapsto(k\gamma,\alpha)$ from the flat torus $\mathbb{T}^2$ to $\mathbb{S}^2$. Onto the equator ($\alpha=\pi/2$) the map is harmonic; onto the parallel $\mathbb{S}^1(1/\sqrt2)$ ($\alpha=\pi/4$, in red) it is proper biharmonic. Both have degree zero: a biharmonic map $\mathbb{T}^2\to\mathbb{S}^2$ of degree $\pm1$ is still to be found.'
   body:
     - >-
       Imagine two surfaces in $\mathbb{R}^3$, one called $M$ made of rubber and the other,
@@ -329,7 +329,7 @@
   text: >
     Dolbeault, Bott–Chern and Aeppli cohomologies, the $\partial\bar\partial$-lemma, formality
     and higher operations, and cohomology of almost complex manifolds.
-  people: ["Giovanni Placini", "Beniamino Cappelletti Montano", "Antonio Contrò"]
+  people: ["Giovanni Placini", "Beniamino Cappelletti Montano", "Antonio Contrò", "Micaela Mura", "Vittoria Piriottu"]
   figures:
     - src: "assets/img/research/hodge-diamond.svg"
       caption: 'The Hodge diamond of a compact Kähler surface. Conjugation and Serre duality make it symmetric, and the Lefschetz map $L=[\omega]\wedge\cdot$ links $H^1$ and $H^3$.'
@@ -787,3 +787,95 @@
     - text: "A. Girouard, I. Polterovich, Spectral geometry of the Steklov problem, J. Spectral Theory 7 (2017)"
     - text: "B. Colbois, C. Léna, L. Provenzano, A. Savo, A reverse Faber-Krahn inequality for the magnetic Laplacian, J. Math. Pures Appl. 192 (2024)"
       url: "https://doi.org/10.1016/j.matpur.2024.103632"
+
+- slug: skew-braces
+  title: "Skew Braces and Topological Algebra"
+  icon: "∘"
+  text: >
+    Skew braces, the algebraic structures behind set-theoretic solutions of the Yang–Baxter
+    equation, in the finite, topological and Lie settings; topological semigroups and their
+    coverings.
+  people: ["Andrea Loi", "Marco Damele"]
+  figures:
+    - src: "assets/img/research/yang-baxter.svg"
+      caption: 'The Yang–Baxter equation in braid form: the two ways of letting three strands cross give the same result. Every skew brace produces a solution.'
+  body:
+    - >-
+      A skew brace is a set with two group structures that are tied together by a distributive-like
+      law. These objects were introduced by L. Guarnieri and L. Vendramin in 2017, generalising the
+      braces of W. Rump, in order to study the set-theoretic solutions of the Yang–Baxter equation,
+      a fundamental equation of mathematical physics that also appears in knot theory, quantum
+      groups and Hopf algebras. Our research studies the structure of skew braces, from finite ones
+      to their topological and Lie group analogues, together with related questions on topological
+      semigroups.
+
+    - "## Skew braces and the Yang–Baxter equation"
+    - >-
+      A skew brace is a triple $(B,\cdot,\circ)$, where $(B,\cdot)$ and $(B,\circ)$ are groups on the
+      same set, called the additive and the multiplicative group, such that
+    - >-
+      $$a\circ(b\cdot c)=(a\circ b)\cdot a^{-1}\cdot(a\circ c)\qquad\text{for all }a,b,c\in B .$$
+    - >-
+      Every group gives a trivial skew brace, with $\circ=\cdot$. Writing
+      $\lambda_a(b)=a^{-1}\cdot(a\circ b)$ and $\bar x$ for the inverse in $(B,\circ)$, the map
+    - >-
+      $$r(a,b)=\big(\lambda_a(b),\ \overline{\lambda_a(b)}\circ a\circ b\big)$$
+    - >-
+      is a bijective solution of the Yang–Baxter equation $r_{12}\,r_{23}\,r_{12}=r_{23}\,r_{12}\,r_{23}$
+      on $B\times B\times B$, where $r_{12}=r\times\mathrm{id}$ and $r_{23}=\mathrm{id}\times r$. This
+      is why skew braces are the natural algebraic setting for the classification of such solutions.
+
+    - "## Finite skew braces"
+    - >-
+      For finite skew braces many questions mirror classical group theory: ideals and quotients,
+      simple skew braces (those without non-trivial ideals), solvability and nilpotency, Sylow-type
+      and Cauchy-type theorems. A central problem, raised by N. Byott and L. Vendramin, asks how
+      the properties of the additive group constrain those of the multiplicative group, for example
+      whether solvability of one forces solvability of the other. We study simple and left-simple
+      skew braces and constructions producing infinite families of them, skew braces with
+      prescribed additive or multiplicative group, a Schur–Zassenhaus theorem and a Cauchy
+      theorem for finite skew braces, and the solvability of two-sided skew braces.
+
+    - "## Lie and topological skew braces"
+    - >-
+      A Lie skew brace is a manifold carrying two compatible Lie group structures with the same
+      identity; such objects are also known as post-Lie groups. They correspond to simply transitive
+      affine actions, that is, to regular subgroups of the affine group $\mathrm{Aff}(G,\cdot)$,
+      and at the infinitesimal level to post-Lie algebras. In this smooth setting strong rigidity
+      phenomena appear. For a connected Lie skew brace $(G,\cdot,\circ)$, solvability passes from
+      $(G,\cdot)$ to $(G,\circ)$; conversely, if $(G,\circ)$ is nilpotent then $(G,\cdot)$ is
+      solvable, and if $(G,\circ)$ is semisimple then the two groups are isomorphic. A compact
+      connected simple Lie skew brace is either the trivial one on the circle $S^1$ or has both
+      groups simple, and a simply connected simple Lie skew brace with nilpotent multiplicative
+      group must be one-dimensional.
+    - >-
+      In the topological category we proved an analogue of the Byott–Vendramin problem: if a
+      connected locally compact Hausdorff skew brace has solvable additive group, then its
+      multiplicative group is solvable. Counterexamples show that none of the hypotheses can be
+      dropped, and for compact connected skew braces with abelian additive group the two group
+      laws must coincide.
+
+    - "## Topological semigroups"
+    - >-
+      A related line of research concerns semigroups with a topology. One question is when the
+      multiplication of a path-connected topological semigroup lifts to an associative
+      multiplication on its universal cover. Continuous lifts always exist, but they may fail to be
+      associative. The answer is encoded in a new invariant, the fundamental semigroup $\Lambda(S)$:
+      an associative lift exists exactly when $\Lambda(S)$ contains an idempotent, and this is the
+      case, for example, for every connected semigroup whose underlying space is a
+      finite-dimensional CW complex. Other results concern the topology and differentiability of
+      Clifford semigroups, and the reconstruction of a monoid from the semigroup of its subsets
+      (the Tamura–Shafer problem).
+
+    - "## Current directions"
+    - - "Classification of finite simple skew braces."
+      - "Solvability and nilpotency problems relating the two groups of a skew brace."
+      - "Rigidity and existence of Lie skew braces and post-Lie algebras."
+      - "Associative lifts and covering theory for topological semigroups."
+  reading:
+    - text: "W. Rump, Braces, radical rings, and the quantum Yang–Baxter equation, J. Algebra 307 (2007)"
+      url: "https://doi.org/10.1016/j.jalgebra.2006.03.040"
+    - text: "L. Guarnieri, L. Vendramin, Skew braces and the Yang–Baxter equation, Math. Comp. 86 (2017)"
+      url: "https://doi.org/10.1090/mcom/3161"
+    - text: "M. Damele, A. Loi, Structural and rigidity properties of Lie skew braces, J. Algebra 695 (2026)"
+      url: "https://doi.org/10.1016/j.jalgebra.2026.01.048"
