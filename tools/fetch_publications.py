@@ -12,6 +12,7 @@ How it works
 - New entries get research topics guessed from title, keywords and MSC codes (see guess_topics).
   The guess can be corrected by editing the "topics" line in the YAML file.
 """
+import datetime
 import difflib
 import json
 import os
@@ -27,7 +28,7 @@ import urllib.request
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 DATA = os.path.join(ROOT, "data", "publications.yml")
 START_YEAR = 2000
-END_YEAR = 2026
+END_YEAR = datetime.date.today().year  # always up to the current year
 
 # zbMATH author codes of current and former members of the group
 AUTHORS = [
@@ -173,7 +174,7 @@ def arxiv_search(e):
     if len(words) < 2:
         return None
     q = " AND ".join(f"ti:{w}" for w in words)
-    url = "http://export.arxiv.org/api/query?" + urllib.parse.urlencode({"search_query": q, "max_results": 10})
+    url = "https://export.arxiv.org/api/query?" + urllib.parse.urlencode({"search_query": q, "max_results": 10})
     for attempt in range(3):
         try:
             with urllib.request.urlopen(url, timeout=60) as r:
@@ -196,7 +197,7 @@ def arxiv_search(e):
 
 
 def search_arxiv(entries):
-    """Fill missing arXiv links (papers from 1992 on). Entries with arxiv: "" are left alone."""
+    """Fill missing arXiv links (papers from 1992 on). Entries with arxiv: "" (not found) or "none" (never link) are left alone."""
     todo = [e for e in entries if "arxiv" not in e and e.get("year", 0) >= 1992]
     print(f"searching arXiv for {len(todo)} papers (about {len(todo) * 3 // 60 + 1} min)", file=sys.stderr)
     for e in todo:
@@ -256,7 +257,7 @@ def main():
         if old is not None:
             used.add(id(old))
             if z["arxiv"] and not old.get("arxiv"):
-                old["arxiv"] = z["arxiv"]  # add the arXiv link zbMATH knows about
+                old["arxiv"] = z["arxiv"]  # add the arXiv link zbMATH knows about ("none" = never)
             continue
         if not z["arxiv"]:
             del z["arxiv"]  # not known to zbMATH: search_arxiv will look for it

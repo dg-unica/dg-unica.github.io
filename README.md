@@ -38,7 +38,7 @@ downloads all papers of the group since 2000 from zbMATH Open and merges them wi
 `data/publications.yml`, keeping manual corrections. It also adds the arXiv link
 (`arxiv:` field) when zbMATH knows it, or when arXiv has a paper with the same title and a
 common author. `arxiv: ""` means the paper was searched and not found; write the link by hand
-if you know it. Use `--no-arxiv-search` to skip the (slow) arXiv search.
+if you know it; `arxiv: "none"` means never add a link (e.g. zbMATH has a wrong one). Use `--no-arxiv-search` to skip the (slow) arXiv search.
 
 ## Updating the arXiv preprints (home page box)
 ```bash
@@ -48,6 +48,14 @@ looks on arXiv for papers of the faculty and PhD students (last 24 months, mathe
 that are not yet published, i.e. without journal reference or DOI on arXiv and not already in
 `data/publications.yml`. The home page shows the 5 most recent. To hide a wrong match (e.g. a
 homonym), add its arXiv id to `exclude:` in `data/preprints.yml`.
+
+## Automatic updates on GitHub
+`.github/workflows/update-arxiv.yml` runs both scripts on GitHub every Monday at 06:00 UTC and
+commits `data/publications.yml` and `data/preprints.yml` when they change. It can also be
+started by hand from the **Actions** tab (**Run workflow**). It needs **Settings → Actions →
+General → Workflow permissions → Read and write permissions**. After an automatic update, download
+those two files again (e.g. from raw.githubusercontent.com) before uploading local copies, so the
+older local versions do not overwrite the update.
 
 ## Regenerating the research figures
 ```bash

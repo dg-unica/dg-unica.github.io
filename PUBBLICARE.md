@@ -38,6 +38,26 @@ La cartella `sito-web-dg` è pronta: contiene solo i file del sito (55 file, cir
 - Se modifichi `assets/site.js` o `assets/style.css`, cambia il numero `?v=...` nei file `.html`
   (vedi README.md).
 
+## Aggiornamento automatico di pubblicazioni e preprint
+Il file `.github/workflows/update-arxiv.yml` fa girare gli script su GitHub, senza usare il computer.
+1. Una volta sola: nel repository **Settings → Actions → General → Workflow permissions**,
+   scegli **Read and write permissions**, poi **Save**.
+2. Parte da solo ogni lunedì mattina. Per lanciarlo subito: scheda **Actions** →
+   **Update publications and preprints** → **Run workflow**. Dura qualche minuto.
+3. Se trova novità salva `data/publications.yml` e `data/preprints.yml`, e il sito si aggiorna.
+4. GitHub cambia solo due file: `data/publications.yml` e `data/preprints.yml`. Prima di caricare
+   di nuovo i file dal computer, riscarica questi due, altrimenti le versioni vecchie del computer
+   cancellano gli aggiornamenti. Dal Terminale, nella cartella del sito:
+
+       cd ~/Desktop/Code-Claude/sito-web-dg
+       curl -fsSL -o data/publications.yml https://raw.githubusercontent.com/dg-unica/dg-unica.github.io/main/data/publications.yml
+       curl -fsSL -o data/preprints.yml https://raw.githubusercontent.com/dg-unica/dg-unica.github.io/main/data/preprints.yml
+
+   (se l'organizzazione o il repository hanno un altro nome, cambialo negli indirizzi).
+   In alternativa, dal sito github.com: apri il file, pulsante **Download raw file** (freccia in giù),
+   e sostituisci quello nella cartella `data`.
+   Oppure non caricare mai questi due file dal computer: carica solo quelli che hai modificato.
+
 ## Un indirizzo unica.it (facoltativo)
 Si può chiedere ai servizi informatici dell'Ateneo un sottodominio (es. `dgunica.unica.it`)
 che punti a GitHub Pages: serve un record DNS di tipo CNAME verso `dg-unica.github.io`.

@@ -130,7 +130,7 @@ function pubRow(p) {
   return `<li class="pub" data-search="${esc((p.authors + " " + p.title + " " + p.journal + " " + p.year).toLowerCase())}">
     <div class="authors">${esc(p.authors)}</div>
     <div>${link(p.url, `<span class="ptitle">${esc(p.title)}</span>`)}</div>
-    <div class="journal"><i>${esc(p.journal)}</i> ${esc(p.details || "")}${p.arxiv ? ` ${link(p.arxiv, `arXiv:${esc(p.arxiv.split("/abs/")[1] || "")}`, "arxiv-link")}` : ""}</div>
+    <div class="journal"><i>${esc(p.journal)}</i> ${esc(p.details || "")}${p.arxiv && p.arxiv !== "none" ? ` ${link(p.arxiv, `arXiv:${esc(p.arxiv.split("/abs/")[1] || "")}`, "arxiv-link")}` : ""}</div>
   </li>`;
 }
 

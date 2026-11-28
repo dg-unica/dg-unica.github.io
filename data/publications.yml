@@ -1627,7 +1627,7 @@
   details: "Loubeau, E. (ed.) et al., Harmonic maps and differential geometry. A harmonic map fest in honour of John C. Wood's 60th birthday, Cagliari, Italy, September 7--10, 2009. Providence, RI: American Mathematical Society (AMS) (ISBN 978-0-8218-4987-3/pbk). Contemporary Mathematics 542, 255-259 (2011)"
   year: 2011
   url: "https://zbmath.org/?q=an:1231.53066"
-  arxiv: "https://arxiv.org/abs/0805.0193"
+  arxiv: "none"  # wrong link on zbMATH: never add one
   topics: [contact-geometry]
 - authors: "B. Cappelletti Montano"
   title: "A note on Legendre foliations"
@@ -2453,7 +2453,7 @@
   details: "130 (2002), 109–123"
   year: 2002
   url: "https://doi.org/10.1007/BF02764073"
-  arxiv: ""
+  arxiv: "none"  # wrong link on zbMATH: never add one
   topics: [harmonic-maps]
 - authors: "R. Caddeo, S. Montaldo, C. Oniciuc"
   title: "Biharmonic immersions into spheres"
