@@ -1,0 +1,41 @@
+# Updates publications (zbMATH + arXiv links) and arXiv preprints, then saves the changed files.
+# Runs every Monday at 06:00 UTC, or by hand: Actions tab -> "Update publications and preprints" -> Run workflow.
+# Needs: Settings -> Actions -> General -> Workflow permissions -> "Read and write permissions".
+name: Update publications and preprints
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-arxiv
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publications (zbMATH, arXiv links)
+        run: python3 tools/fetch_publications.py
+
+      - name: Preprints (arXiv)
+        run: python3 tools/fetch_preprints.py
+
+      - name: Save changes
+        run: |
+          git add data/publications.yml data/preprints.yml
+          if git diff --cached --quiet; then
+            echo "Nothing new."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898783+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Update publications and preprints"
+            git push
+          fi
